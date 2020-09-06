@@ -58,14 +58,10 @@ import App from '../app.vue';
 
 Vue.use(TurbolinksAdapter);
 
+Vue.component('app', App);
+
 document.addEventListener('turbolinks:load', () => {
   const app = new Vue({
-    el: '#hello',
-    data: () => {
-      return {
-        message: 'Can you say hello?',
-      };
-    },
-    components: { App },
+    el: '[data-behaviour="vue"]',
   });
 });
