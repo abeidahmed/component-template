@@ -8,10 +8,12 @@
     "@rails/webpacker": "4.3.0",
     "@tailwindcss/ui": "^0.5.0",
     "interactjs": "^1.9.22",
+    "prismjs": "^1.21.0",
     "tailwindcss": "^1.8.3",
     "turbolinks": "^5.2.0",
     "vue": "^2.6.12",
     "vue-loader": "^15.9.3",
+    "vue-prism-component": "^1.2.0",
     "vue-template-compiler": "^2.6.12",
     "vue-turbolinks": "^2.1.0"
   },

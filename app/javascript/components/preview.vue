@@ -72,25 +72,24 @@
         </div>
       </div>
       <div v-show="showCode">
-        <pre
-          class="block px-4 py-0 m-0 overflow-x-auto leading-normal language-html"
-        >
-          <code class="scrolling-touch text-sm antialiased language-html">
-            {{ content }}
-          </code>
-        </pre>
+        <Prism language="html">{{ content }}</Prism>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Prism from 'vue-prism-component';
+
 export default {
   props: {
     template: {
       type: Object,
       required: true,
     },
+  },
+  components: {
+    Prism,
   },
   data() {
     return {
