@@ -1,8 +1,10 @@
 <template>
-  <div class="sm:px-4">
-    <div class="mt-6 overflow-hidden border-t border-b sm:border sm:rounded-lg">
+  <div class="mt-12 sm:px-6 lg:px-8">
+    <div
+      class="overflow-hidden border-t border-b border-gray-200 sm:border sm:rounded-lg"
+    >
       <div
-        class="flex items-center justify-between px-4 py-2 bg-white border-b border-gray-200 sm:py-4 sm:px-6 sm:items-baseline"
+        class="flex items-center justify-between px-4 py-2 bg-white border-b border-gray-200 sm:px-6 lg:px-8 sm:py-4 sm:items-baseline"
       >
         <div>
           <p class="text-base leading-snug truncate font-regular md:text-lg">

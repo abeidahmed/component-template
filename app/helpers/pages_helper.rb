@@ -8,14 +8,13 @@ module PagesHelper
     string.split(' ').map { |el| el.downcase }.join('_')
   end
 
-  def embed_svg(filename, options = {})
-    svg_path = Rails.application.assets
-    file = svg_path.find_asset("svg/#{filename}.svg").source.force_encoding("UTF-8")
+  def embed_svg filename, options={}
+    file = File.read(Rails.root.join('app', 'assets', 'images', 'svg', filename))
     doc = Nokogiri::HTML::DocumentFragment.parse file
-    svg = doc.at_css "svg"
+    svg = doc.at_css 'svg'
     if options[:class].present?
-      svg["class"] = options[:class]
+      svg['class'] = options[:class]
     end
-    raw doc
+    doc.to_html.html_safe
   end
 end

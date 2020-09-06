@@ -12,7 +12,8 @@
   </head>
 
   <body>
-    <div data-behaviour="vue">
+    <div data-behaviour="vue" class="flex flex-col">
+      <%= render 'headers/header' %>
       <%= yield %>
     </div>
   </body>
