@@ -1,2 +1,4 @@
-<h1 class="text-indigo-500">Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<main>
+  <%= render "hero" %>
+  <%= render "categories/list", categories: @categories %>
+</main>

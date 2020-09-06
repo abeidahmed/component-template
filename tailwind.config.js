@@ -15,10 +15,15 @@ module.exports = {
         '8xl': '90rem',
         ...defaultTheme.maxWidth,
       },
+      opacity: {
+        '15': '0.15',
+        '30': '0.3',
+        ...defaultTheme.opacity,
+      },
     },
   },
   variants: {
-    margin: ['responsive', 'first'],
+    opacity: ['responsive', 'group-hover'],
   },
   plugins: [require('@tailwindcss/ui')],
 };
