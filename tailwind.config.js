@@ -7,6 +7,14 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },
+      cursor: {
+        'ew-resize': 'ew-resize',
+        ...defaultTheme.cursor,
+      },
+      maxWidth: {
+        '8xl': '90rem',
+        ...defaultTheme.maxWidth,
+      },
     },
   },
   variants: {},
