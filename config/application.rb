@@ -31,5 +31,14 @@ module ComponentTemplate
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # disable asset generation
+    config.generators do |g|
+      g.assets false
+      g.test_framework nil
+    end
+
+    # join font assets folder
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end
