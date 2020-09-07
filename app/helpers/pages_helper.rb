@@ -15,10 +15,12 @@ module PagesHelper
     chars[0] + chars[1..-1].downcase
   end
 
-  def embed_svg filename, options={}
-    file = File.read(Rails.root.join('app', 'assets', 'images', 'svg', filename))
-    doc = Nokogiri::HTML::DocumentFragment.parse file
-    svg = doc.at_css 'svg'
+  def embed_svg(filename, **options)
+    file_path = Rails.root.join('app', 'assets', 'images', 'svg', filename)
+    return unless File.exists?(file_path)
+    file = File.read(file_path)
+    doc = Nokogiri::HTML::DocumentFragment.parse(file)
+    svg = doc.at_css('svg')
     if options[:class].present?
       svg['class'] = options[:class]
     end
