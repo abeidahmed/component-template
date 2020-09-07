@@ -18,6 +18,7 @@ module.exports = {
       opacity: {
         '15': '0.15',
         '30': '0.3',
+        '40': '0.4',
         ...defaultTheme.opacity,
       },
     },
