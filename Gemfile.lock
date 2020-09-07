@@ -65,6 +65,8 @@ GEM
     crass (1.0.6)
     erubi (1.9.0)
     ffi (1.13.1)
+    friendly_id (5.4.0)
+      activerecord (>= 4.0.0)
     front_matter_parser (0.2.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -178,6 +180,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
+  friendly_id (~> 5.4.0)
   front_matter_parser
   jbuilder (~> 2.7)
   listen (~> 3.2)
