@@ -19,7 +19,7 @@ categories = [
 
 if Rails.env.production?
   categories.each do |category|
-    Category.create! title: category
+    Category.create!(title: category) unless Category.exists?(title: category)
   end
 else
   puts "Cannot run seed on development and test environment!"
