@@ -25,6 +25,7 @@ class CategoryGenerator < Rails::Generators::Base
 
     def create_category
       title = folder_name.humanize
+      svg = embed_svg("categories/#{underscorize(folder_name)}.svg")
       Category.create!(title: title) unless Category.exists?(title: title)
     end
 end
