@@ -10,11 +10,6 @@ module PagesHelper
     chars.split(' ').map { |el| el.downcase }.join('_')
   end
 
-  def proper_name(string)
-    chars = string.split('_').map { |el| el.capitalize }.join(' ')
-    chars[0] + chars[1..-1].downcase
-  end
-
   def embed_svg(filename, **options)
     file_path = Rails.root.join('app', 'assets', 'images', 'svg', filename)
     return unless File.exists?(file_path)
