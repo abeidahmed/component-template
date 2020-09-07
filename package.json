@@ -20,5 +20,13 @@
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^3.11.0"
+  },
+  "engines": {
+    "node": "12.18.3",
+    "yarn": "1.22.4"
+  },
+  "scripts": {
+    "webpack:deploy": "webpack --config=webpack/webpack.config.js -p",
+    "heroku-postbuild": "npm run webpack:deploy"
   }
 }
