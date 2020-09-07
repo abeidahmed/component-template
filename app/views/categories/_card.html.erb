@@ -1,17 +1,36 @@
-<%= link_to category_url(category), class: "block group" do %>
-  <figure>
-    <div class="relative overflow-hidden transition duration-150 ease-in-out transform rounded">
-      <%= embed_svg "categories/#{underscorize(category.title)}.svg", class: "w-full h-auto" %>
-      <div class="absolute inset-0 flex items-center justify-center text-center transition duration-150 ease-in-out border border-gray-900 rounded-md opacity-15"></div>
-      <div class="absolute inset-0 transition duration-150 ease-in-out bg-white opacity-0 group-hover:opacity-30"></div>
-    </div>
-    <figcaption class="mt-3">
-      <p class="text-sm font-medium leading-5 text-gray-900">
-        <%= category.title %>
-      </p>
-      <p class="text-sm leading-5 text-gray-500">
-        <%= pluralize templates_for(category).size, "component" %>
-      </p>
-    </figcaption>
-  </figure>
+<% if templates_for(category).size > 0 %>
+  <%= link_to category_url(category), class: "block group" do %>
+    <figure>
+      <div class="relative overflow-hidden transition duration-150 ease-in-out transform rounded">
+        <%= embed_svg "categories/#{underscorize(category.title)}.svg", class: "w-full h-auto" %>
+        <div class="absolute inset-0 flex items-center justify-center text-center transition duration-150 ease-in-out border border-gray-900 rounded-md opacity-15"></div>
+        <div class="absolute inset-0 transition duration-150 ease-in-out bg-white opacity-0 group-hover:opacity-30"></div>
+      </div>
+      <figcaption class="mt-3">
+        <p class="text-sm font-medium leading-5 text-gray-900">
+          <%= category.title %>
+        </p>
+        <p class="text-sm leading-5 text-gray-500">
+          <%= pluralize templates_for(category).size, "component" %>
+        </p>
+      </figcaption>
+    </figure>
+  <% end %>
+<% else %>
+  <div class="block">
+    <figure class="opacity-50">
+      <div class="relative overflow-hidden transition duration-150 ease-in-out transform rounded">
+        <%= embed_svg "categories/#{underscorize(category.title)}.svg", class: "w-full h-auto" %>
+        <div class="absolute inset-0 flex items-center justify-center text-center transition duration-150 ease-in-out border-2 border-gray-900 border-dashed rounded-md opacity-15"></div>
+      </div>
+      <figcaption class="mt-3">
+        <p class="text-sm font-medium leading-5 text-gray-900">
+          <%= category.title %>
+        </p>
+        <p class="text-sm leading-5 text-gray-500">
+          Coming soon
+        </p>
+      </figcaption>
+    </figure>
+  </div>
 <% end %>
