@@ -1,3 +1,2 @@
-web: bundle exec rails s
-webpack: ./bin/webpack-dev-server
+web: bundle exec puma -C config/puma.rb
 release: bin/rake db:migrate
