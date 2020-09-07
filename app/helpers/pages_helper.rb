@@ -1,7 +1,7 @@
 module PagesHelper
   def parse(file)
-    liquid = File.read(file)
-    FrontMatterParser::Parser.new(:liquid).call(liquid)
+    html_file = File.read(file)
+    FrontMatterParser::Parser.new(:html).call(html_file)
   end
 
   def underscorize(string)

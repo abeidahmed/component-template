@@ -10,6 +10,6 @@ class TemplateGenerator < Rails::Generators::NamedBase
 
   private
     def generate_template_boilerplate
-      copy_file "template_boilerplate.liquid", "app/templates/#{underscorize(name)}/#{file_title}.liquid"
+      copy_file "template_boilerplate.html", "app/templates/#{underscorize(name)}/#{file_title}.html"
     end
 end
