@@ -5,7 +5,14 @@ module PagesHelper
   end
 
   def underscorize(string)
-    string.split(' ').map { |el| el.downcase }.join('_')
+    regex = /(\W|\_)/
+    chars = string.gsub(regex, ' ')
+    chars.split(' ').map { |el| el.downcase }.join('_')
+  end
+
+  def proper_name(string)
+    chars = string.split('_').map { |el| el.capitalize }.join(' ')
+    chars[0] + chars[1..-1].downcase
   end
 
   def embed_svg filename, options={}

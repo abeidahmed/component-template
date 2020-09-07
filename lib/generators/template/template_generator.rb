@@ -1,4 +1,6 @@
 class TemplateGenerator < Rails::Generators::NamedBase
+  include ApplicationHelper
+
   source_root File.expand_path('templates', __dir__)
   argument :file_title, type: :string
 
@@ -8,6 +10,6 @@ class TemplateGenerator < Rails::Generators::NamedBase
 
   private
     def generate_template_boilerplate
-      copy_file "template_boilerplate.liquid", "app/templates/#{name.underscore}/#{file_title}.liquid"
+      copy_file "template_boilerplate.liquid", "app/templates/#{underscorize(name)}/#{file_title}.liquid"
     end
 end
