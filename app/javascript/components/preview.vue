@@ -78,7 +78,21 @@
           </div>
           <div
             class="relative flex-shrink-0 hidden w-4 bg-gray-100 border-l md:block resizer-right cursor-ew-resize"
-          ></div>
+          >
+            <div class="absolute inset-y-0 flex items-center">
+              <svg
+                class="w-4 h-4 text-gray-700 transform rotate-90"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 7a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 13a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
       <div v-show="showCode">
