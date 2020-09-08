@@ -9,7 +9,7 @@ module PagesHelper
 
   def parse_html(file)
     nokogiri_object = Nokogiri::HTML(read_file(file))
-    nokogiri_object.xpath('//body').children.to_html
+    nokogiri_object.css("div.start-below").children.to_html
   end
 
   def underscorize(string)

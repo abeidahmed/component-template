@@ -58,7 +58,7 @@ import Preview from '../components/preview.vue';
 
 Vue.use(TurbolinksAdapter);
 
-Vue.component('Preview', Preview);
+Vue.component('preview', Preview);
 
 document.addEventListener('turbolinks:load', () => {
   const app = new Vue({
