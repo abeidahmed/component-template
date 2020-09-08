@@ -70,9 +70,9 @@
           <div class="flex-1">
             <iframe
               ref="iframe"
-              :srcdoc="content"
               frameborder="0"
               class="w-full"
+              :srcdoc="content"
               :style="{ height: frameHeight }"
             ></iframe>
           </div>
@@ -96,7 +96,7 @@
         </div>
       </div>
       <div v-show="showCode">
-        <Prism language="html">{{ partialCode }}</Prism>
+        <Prism language="html">{{ displayCode }}</Prism>
       </div>
     </div>
   </div>
@@ -116,24 +116,20 @@ export default {
     Prism,
   },
   data() {
-    const {
-      partialCode,
-      asset,
-      full: { front_matter, content },
-    } = this.template;
+    const { displayCode, cssPath, htmlFull } = this.template;
     return {
-      title: front_matter.title,
-      content,
-      partialCode,
+      title: htmlFull.front_matter.title,
+      content: htmlFull.content,
+      displayCode,
+      cssPath,
       frameHeight: '',
       showCode: false,
-      asset,
     };
   },
   methods: {
     copy() {
       const textarea = document.createElement('textarea');
-      textarea.value = this.partialCode;
+      textarea.value = this.displayCode;
       textarea.style.position = 'fixed';
       textarea.style.left = '-9999999px';
       this.$refs.clipboard.append(textarea);
@@ -143,25 +139,20 @@ export default {
       this.$refs.clipboard.removeChild(textarea);
     },
   },
-  computed: {
-    computeHeight() {
-      this.frameHeight =
-        this.$refs.iframe.contentWindow.document.body.scrollHeight + 'px';
-    },
+  mounted() {
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        this.frameHeight =
+          this.$refs.iframe.contentWindow.document.body.scrollHeight + 'px';
+      }, 1000);
+    });
   },
-  // mounted() {
-  //   const link = document.createElement('link');
-  //   link.rel = 'stylesheet';
-  //   link.href = this.asset;
-  //   this.$refs.iframe.contentDocument.head.append(link);
-  // },
   created() {
     window.addEventListener('load', () => {
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = this.asset;
-      this.$refs.iframe.contentDocument.head.append(link);
-      this.computeHeight;
+      const linkTag = document.createElement('link');
+      linkTag.rel = 'stylesheet';
+      linkTag.href = this.cssPath;
+      this.$refs.iframe.contentDocument.head.append(linkTag);
     });
   },
 };
