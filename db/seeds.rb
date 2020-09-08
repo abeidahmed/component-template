@@ -6,16 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-categories = [
-  'Cta sections',
-  'Navbars',
-  'Page headings',
-  'Sign-in and registrations',
-  'Buttons',
-  'Avatars',
-  'Hero sections',
-  'Feature sections'
-]
+categories = []
+Category.all.each { |c| categories << c.title }
 
 if Rails.env.production?
   categories.each do |category|
