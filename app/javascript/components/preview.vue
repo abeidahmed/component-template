@@ -96,7 +96,7 @@
         </div>
       </div>
       <div v-show="showCode">
-        <Prism language="html">{{ content }}</Prism>
+        <Prism language="html">{{ partialCode }}</Prism>
       </div>
     </div>
   </div>
@@ -116,9 +116,14 @@ export default {
     Prism,
   },
   data() {
+    const {
+      partialCode,
+      full: { front_matter, content },
+    } = this.template;
     return {
-      title: this.template.front_matter.title,
-      content: this.template.content,
+      title: front_matter.title,
+      content,
+      partialCode,
       frameHeight: '',
       showCode: false,
     };
@@ -126,7 +131,7 @@ export default {
   methods: {
     copy() {
       const textarea = document.createElement('textarea');
-      textarea.value = this.content;
+      textarea.value = this.partialCode;
       textarea.style.position = 'fixed';
       textarea.style.left = '-9999999px';
       this.$refs.clipboard.append(textarea);

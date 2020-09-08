@@ -1,7 +1,15 @@
 module PagesHelper
+  def read_file(file)
+    File.read(file)
+  end
+
   def parse(file)
-    html_file = File.read(file)
-    FrontMatterParser::Parser.new(:html).call(html_file)
+    FrontMatterParser::Parser.new(:html).call(read_file(file))
+  end
+
+  def parse_html(file)
+    nokogiri_object = Nokogiri::HTML(read_file(file))
+    nokogiri_object.xpath('//body').children.to_html
   end
 
   def underscorize(string)

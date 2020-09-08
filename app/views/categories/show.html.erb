@@ -7,7 +7,7 @@
         </h3>
       </div>
       <% @templates.each do |template| %>
-        <preview :template="<%= parse(template).to_json %>"></preview>
+        <Preview :template="<%= { full: parse(template), partialCode: parse_html(template) }.to_json %>" />
       <% end %>
     </div>
   </div>
