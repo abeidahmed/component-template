@@ -8,8 +8,9 @@
       </div>
       <% @templates.each do |template| %>
         <preview :template="<%= {
-          htmlFull: parse(template),
-          displayCode: parse_html(template, { target: "div.start-below", children: true }),
+          title: TemplateParser.new(template).get_title,
+          displayCode: TemplateParser.new(template).parse_html("div.start-below"),
+          htmlBody: TemplateParser.new(template).parse_body,
           cssPath: Webpacker.manifest.lookup('application.css')
         }.to_json %>"></preview>
       <% end %>
