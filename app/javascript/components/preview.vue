@@ -1,15 +1,11 @@
 <template>
   <div class="mt-12 sm:px-6 lg:px-8">
-    <div
-      class="overflow-hidden border-t border-b border-gray-200 sm:border sm:rounded-lg"
-    >
+    <div class="overflow-hidden border-t border-b border-gray-200 sm:border sm:rounded-lg">
       <div
         class="flex items-center justify-between px-4 py-2 bg-white border-b border-gray-200 sm:px-6 lg:px-8 sm:py-4 sm:items-baseline"
       >
         <div>
-          <p class="text-base leading-snug truncate font-regular md:text-lg">
-            {{ title }}
-          </p>
+          <p class="text-base leading-snug truncate font-regular md:text-lg">{{ title }}</p>
         </div>
         <div class="items-center hidden sm:flex">
           <div class="flex items-center">
@@ -19,18 +15,14 @@
                 !showCode ? 'text-indigo-700 bg-indigo-100' : 'text-gray-500'
               "
               @click="showCode = false"
-            >
-              Preview
-            </button>
+            >Preview</button>
             <button
               class="inline-block px-3 py-2 ml-2 font-medium leading-none rounded-lg focus:outline-none hover:text-indigo-600 focus:text-indigo-600"
               :class="
                 showCode ? 'text-indigo-700 bg-indigo-100' : 'text-gray-500'
               "
               @click="showCode = true"
-            >
-              Code
-            </button>
+            >Code</button>
           </div>
           <div ref="clipboard" class="flex items-center">
             <div class="self-stretch pl-3 pr-4">
