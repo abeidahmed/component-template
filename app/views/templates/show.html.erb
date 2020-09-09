@@ -1,4 +1,5 @@
 <template-show :template="<%= {
+  title: TemplateParser.new(@template).get_title,
   htmlContent: TemplateParser.new(@template).parse_body,
   cssPath: Webpacker.manifest.lookup('application.css')
 }.to_json %>"></template-show>

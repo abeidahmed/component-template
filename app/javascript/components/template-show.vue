@@ -3,9 +3,7 @@
     <header v-show="showHeader" class="relative bg-gray-800">
       <div class="flex items-center justify-between px-4 py-4 sm:px-6 md:px-6 lg:px-8 xl:px-12">
         <div class="min-w-0">
-          <h1
-            class="text-sm font-medium leading-5 text-gray-200 truncate"
-          >Simple dark with menu button on left</h1>
+          <h1 class="text-sm font-medium leading-5 text-gray-200 truncate md:text-base">{{ title }}</h1>
         </div>
         <div
           class="absolute hidden sm:flex sm:items-center sm:space-x-4"
@@ -163,7 +161,7 @@ export default {
     },
   },
   data() {
-    const { htmlContent, cssPath } = this.template;
+    const { htmlContent, cssPath, title } = this.template;
     return {
       srcDoc: `
         <!DOCTYPE html>
@@ -178,6 +176,7 @@ export default {
           </body>
         </html>
       `,
+      title,
       frameWinWidth: 0,
       activeScreen: '',
       frameWidth: '',
