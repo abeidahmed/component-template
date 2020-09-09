@@ -55,10 +55,12 @@
 import TurbolinksAdapter from 'vue-turbolinks';
 import Vue from 'vue/dist/vue.esm';
 import Preview from '../components/preview.vue';
+import TemplateShow from '../components/template-show.vue';
 
 Vue.use(TurbolinksAdapter);
 
 Vue.component('preview', Preview);
+Vue.component('template-show', TemplateShow);
 
 document.addEventListener('turbolinks:load', () => {
   const app = new Vue({

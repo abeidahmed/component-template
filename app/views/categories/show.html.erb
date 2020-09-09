@@ -11,7 +11,8 @@
           title: TemplateParser.new(template).get_title,
           displayCode: TemplateParser.new(template).parse_html("div.start-below"),
           htmlBody: TemplateParser.new(template).parse_body,
-          cssPath: Webpacker.manifest.lookup('application.css')
+          cssPath: Webpacker.manifest.lookup('application.css'),
+          templateURL: template_url(File.basename(template, ".*"))
         }.to_json %>"></preview>
       <% end %>
     </div>
