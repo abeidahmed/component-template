@@ -1,0 +1,55 @@
+<!--
+  ---
+  title: Dark sidebar with light header
+  category: Sidebar layouts
+  ---
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="stylesheet" href="packs/css/application-ada57df3.css" />
+  </head>
+  <body>
+    <div class="start-below">
+      <div class="min-h-screen bg-gray-100">
+        <aside
+          class="fixed top-0 z-50 flex flex-col flex-shrink-0 w-64 h-screen overflow-y-hidden transition duration-150 ease-in-out transform bg-gray-800 border-r border-gray-200 lg:translate-x-0 lg:sticky"
+        >
+          <div
+            class="flex items-center justify-between flex-shrink-0 h-16 px-3 bg-gray-900"
+          >
+            <img
+              src="https://tailwindui.com/img/logos/workflow-logo-on-dark.svg"
+              alt="Company logo"
+              class="w-auto h-8"
+            />
+            <button
+              class="p-1 -mr-2 text-gray-200 transition duration-150 ease-in-out rounded-md lg:hidden focus:outline-none focus:text-white focus:bg-gray-800"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div class="flex-1 overflow-y-auto"></div>
+        </aside>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+  </body>
+</html>
