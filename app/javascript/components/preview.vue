@@ -76,7 +76,7 @@
         </div>
       </div>
       <div v-show="!showCode" class="bg-gray-500">
-        <div class="flex resizer">
+        <div class="flex resizer" style="touch-action: none">
           <div class="flex-1">
             <iframe
               ref="iframe"
@@ -154,6 +154,18 @@ export default {
       showCode: false,
     };
   },
+  mounted() {
+    const frame = this.$refs.iframe.contentWindow;
+    frame.addEventListener('load', this.calcFrameHeight);
+    frame.addEventListener('resize', this.calcFrameHeight);
+    this.calcFrameHeight();
+  },
+  destroyed() {
+    this.$refs.iframe.contentWindow.removeEventListener(
+      'resize',
+      this.calcFrameHeight
+    );
+  },
   methods: {
     copy() {
       const textarea = document.createElement('textarea');
@@ -166,12 +178,10 @@ export default {
       document.execCommand('copy');
       this.$refs.clipboard.removeChild(textarea);
     },
-  },
-  mounted() {
-    window.addEventListener('load', () => {
+    calcFrameHeight() {
       this.frameHeight =
-        this.$refs.iframe.contentWindow.document.body.scrollHeight + 'px';
-    });
+        this.$refs.iframe.contentDocument.body.offsetHeight + 'px';
+    },
   },
 };
 </script>
