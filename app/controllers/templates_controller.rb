@@ -3,6 +3,8 @@ class TemplatesController < ApplicationController
 
   def show
     template_filename = params[:id]
-    @template = Dir["app/templates/**/#{template_filename}.html"].first
+    file = Dir["app/templates/**/#{template_filename}.html"].first
+    redirect_to root_url if file.nil?
+    @template = file
   end
 end
