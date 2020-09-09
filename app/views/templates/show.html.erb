@@ -1,3 +1,5 @@
+<% provide(:title, TemplateParser.new(@template).get_title) %>
+
 <template-show :template="<%= {
   title: TemplateParser.new(@template).get_title,
   htmlContent: TemplateParser.new(@template).parse_body,
