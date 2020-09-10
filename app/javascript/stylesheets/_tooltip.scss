@@ -1,0 +1,124 @@
+$tooltip-padding-y: 0.5rem !default;
+$tooltip-padding-x: 0.5rem !default;
+$tooltip-bg-color: #1a202e !default;
+$tooltip-text-color: #f8fafc !default;
+$tooltip-border-radius: 4px !default;
+$tooltip-font-size: 0.8rem !default;
+$tooltip-arrow-width: 5.5px !default;
+
+@mixin tooltip-top {
+  bottom: calc(105% + #{$tooltip-arrow-width});
+  left: 50%;
+  transform: translateX(-50%);
+
+  &:after {
+    top: 100%;
+    left: 50%;
+    border-color: $tooltip-bg-color transparent transparent transparent;
+    transform: translateX(-50%);
+  }
+}
+@mixin tooltip-right {
+  left: calc(105% + #{$tooltip-arrow-width});
+  top: 50%;
+  transform: translateY(-50%);
+
+  &:after {
+    right: 100%;
+    top: 50%;
+    border-color: transparent $tooltip-bg-color transparent transparent;
+    transform: translateY(-50%);
+  }
+}
+@mixin tooltip-left {
+  right: calc(105% + #{$tooltip-arrow-width});
+  top: 50%;
+  transform: translateY(-50%);
+
+  &:after {
+    left: 100%;
+    top: 50%;
+    border-color: transparent transparent transparent $tooltip-bg-color;
+    transform: translateY(-50%);
+  }
+}
+@mixin tooltip-bottom {
+  top: calc(105% + #{$tooltip-arrow-width});
+  left: 50%;
+  transform: translateX(-50%);
+
+  &:after {
+    bottom: 100%;
+    left: 50%;
+    border-color: transparent transparent $tooltip-bg-color transparent;
+    transform: translateX(-50%);
+  }
+}
+
+//Tooltip direction
+///@param {direction} $direction: top, bottom, left, right
+///@return {direction}
+///
+@mixin tooltip-position($position) {
+  @if $position == top {
+    @include tooltip-top;
+  } @else if $position == right {
+    @include tooltip-right;
+  } @else if $position == left {
+    @include tooltip-left;
+  } @else if $position == bottom {
+    @include tooltip-bottom;
+  }
+}
+
+.is-tooltip {
+  position: relative;
+}
+
+.tooltip-text {
+  display: block;
+  white-space: nowrap;
+  text-align: center;
+  position: absolute;
+  line-height: 1.2;
+  background-color: $tooltip-bg-color;
+  color: $tooltip-text-color;
+  font-weight: 500;
+  border-radius: $tooltip-border-radius;
+  z-index: 100;
+  padding: $tooltip-padding-y $tooltip-padding-x;
+  visibility: hidden;
+  opacity: 0;
+  font-size: $tooltip-font-size;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: all 150ms ease-in-out;
+}
+
+.tooltip-text.is-top:after,
+.tooltip-text.is-right:after,
+.tooltip-text.is-left:after,
+.tooltip-text.is-bottom:after {
+  content: '';
+  position: absolute;
+  border-width: $tooltip-arrow-width;
+  border-style: solid;
+  border-radius: 0px;
+}
+
+.tooltip-text.is-top {
+  @include tooltip-position(top);
+}
+.tooltip-text.is-right {
+  @include tooltip-position(right);
+}
+.tooltip-text.is-left {
+  @include tooltip-position(left);
+}
+.tooltip-text.is-bottom {
+  @include tooltip-position(bottom);
+}
+
+.is-tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}

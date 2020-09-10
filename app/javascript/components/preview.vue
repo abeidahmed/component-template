@@ -1,8 +1,8 @@
 <template>
   <div class="mt-12 sm:px-6 lg:px-8">
-    <div class="overflow-hidden border-t border-b border-gray-200 sm:border sm:rounded-lg">
+    <div class="border-t border-b border-gray-200 sm:border sm:rounded-lg">
       <div
-        class="flex items-center justify-between px-4 py-2 bg-white border-b border-gray-200 md:px-6 sm:py-4 sm:items-baseline"
+        class="flex items-center justify-between px-4 py-2 bg-white border-b border-gray-200 rounded-t-lg md:px-6 sm:py-4 sm:items-baseline"
       >
         <div>
           <p class="text-base leading-snug truncate font-regular md:text-lg">{{ title }}</p>
@@ -29,33 +29,39 @@
               <div class="h-full border-l border-gray-200"></div>
             </div>
             <div class="flex items-center space-x-4">
-              <a
-                :href="templateURL"
-                class="hidden text-gray-500 md:block hover:text-gray-700"
-                target="_blank"
-                aria-label="open in a new tab"
-              >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"
-                  />
-                  <path
-                    d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
-                  />
-                </svg>
-              </a>
-              <button
-                class="inline-flex items-center justify-center text-gray-500 hover:text-gray-700"
-                aria-label="copy code snippet"
-                @click="copy"
-              >
-                <svg viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-                  <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
-                  <path
-                    d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z"
-                  />
-                </svg>
-              </button>
+              <div class="is-tooltip">
+                <a
+                  :href="templateURL"
+                  class="hidden text-gray-500 md:block hover:text-gray-700"
+                  target="_blank"
+                  aria-label="open in a new tab"
+                >
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"
+                    />
+                    <path
+                      d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
+                    />
+                  </svg>
+                </a>
+                <span class="tooltip-text is-top">View full screen</span>
+              </div>
+              <div class="inline-flex items-center justify-center is-tooltip">
+                <button
+                  class="inline-flex items-center justify-center text-gray-500 hover:text-gray-700"
+                  aria-label="copy code snippet"
+                  @click="copy"
+                >
+                  <svg viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                    <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
+                    <path
+                      d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z"
+                    />
+                  </svg>
+                </button>
+                <span class="tooltip-text is-top">Copy code</span>
+              </div>
             </div>
           </div>
         </div>
@@ -75,7 +81,7 @@
           </button>
         </div>
       </div>
-      <div v-show="!showCode" class="bg-gray-500">
+      <div v-show="!showCode" class="overflow-hidden bg-gray-500 sm:rounded-b-lg">
         <div class="flex resizer" style="touch-action: none">
           <div class="flex-1">
             <iframe
