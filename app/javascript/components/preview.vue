@@ -2,12 +2,12 @@
   <div class="mt-12 sm:px-6 lg:px-8">
     <div class="border-t border-b border-gray-200 sm:border sm:rounded-lg">
       <div
-        class="flex items-center justify-between px-4 py-2 bg-white border-b border-gray-200 rounded-t-lg md:px-6 sm:py-4 sm:items-baseline"
+        class="flex items-center justify-between min-w-0 px-4 py-2 bg-white border-b border-gray-200 rounded-t-lg md:px-6 md:py-4"
       >
-        <div>
-          <p class="text-base leading-snug truncate font-regular md:text-lg">{{ title }}</p>
+        <div class="pr-2 truncate">
+          <p class="text-base leading-snug truncate font-regular lg:text-lg">{{ title }}</p>
         </div>
-        <div class="items-center hidden sm:flex">
+        <div class="items-center hidden md:flex">
           <div class="flex items-center">
             <button
               class="inline-block px-3 py-2 ml-2 font-medium leading-none rounded-lg focus:outline-none hover:text-indigo-600 focus:text-indigo-600"
@@ -65,7 +65,7 @@
             </div>
           </div>
         </div>
-        <div class="sm:hidden">
+        <div class="md:hidden">
           <button
             class="inline-block px-3 py-3 font-medium leading-none rounded-lg focus:outline-none"
             @click="showCode = !showCode"
@@ -111,7 +111,7 @@
           </div>
         </div>
       </div>
-      <div v-show="showCode">
+      <div v-show="showCode" class="overflow-hidden sm:rounded-b-lg">
         <Prism language="html">{{ displayCode }}</Prism>
       </div>
     </div>
@@ -165,12 +165,6 @@ export default {
     frame.addEventListener('load', this.calcFrameHeight);
     frame.addEventListener('resize', this.calcFrameHeight);
     this.calcFrameHeight();
-  },
-  destroyed() {
-    this.$refs.iframe.contentWindow.removeEventListener(
-      'resize',
-      this.calcFrameHeight
-    );
   },
   methods: {
     copy() {
