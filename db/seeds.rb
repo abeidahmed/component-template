@@ -15,7 +15,17 @@ categories = [
   'Avatars',
   'Hero sections',
   'Sidebar layouts',
-  'Sign-in and registrations'
+  'Sign-in and registrations',
+  'Newsletter sections',
+  'Badges',
+  'Notifications',
+  'Alerts',
+  'Input groups',
+  'Stats',
+  'Grid lists',
+  'Blog sections',
+  'Team sections',
+  'Footers'
 ]
 
 if Rails.env.production?
