@@ -5,49 +5,67 @@
   ---
 -->
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-    <link rel="stylesheet" href="packs/css/application-ada57df3.css" />
-  </head>
-  <body>
-    <div class="start-below">
-      <div id="app" class="flex min-h-screen bg-gray-100">
-        <!-- Overlay -->
-        <div
-          :class="{ hidden: !sidebarActive }"
-          class="fixed inset-0 z-40 lg:hidden"
-        >
-          <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-        </div>
-        <!-- Sidebar
+<body>
+  <div class="start-below">
+    <div id="app" class="flex min-h-screen bg-gray-100">
+      <!-- Overlay -->
+      <div
+        :class="{ hidden: !sidebarActive }"
+        class="fixed inset-0 z-40 lg:hidden"
+      >
+        <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+      </div>
+      <!-- Sidebar
           Active: "translate-x-0"
           Inactive: "-translate-x-full"
         -->
-        <aside
-          class="fixed top-0 z-50 flex flex-col flex-shrink-0 w-64 h-screen overflow-y-hidden transition duration-150 ease-in-out transform bg-gray-800 lg:translate-x-0 lg:sticky"
-          :class="sidebarActive ? 'translate-x-0' : '-translate-x-full'"
+      <aside
+        class="fixed top-0 z-50 flex flex-col flex-shrink-0 w-64 h-screen overflow-y-hidden transition duration-150 ease-in-out transform bg-gray-800 lg:translate-x-0 lg:sticky"
+        :class="sidebarActive ? 'translate-x-0' : '-translate-x-full'"
+      >
+        <div
+          class="flex items-center justify-between flex-shrink-0 h-16 px-4 bg-gray-900"
         >
-          <div
-            class="flex items-center justify-between flex-shrink-0 h-16 px-4 bg-gray-900"
+          <a href="javascript:void(0)">
+            <img
+              src="https://tailwindui.com/img/logos/workflow-logo-on-dark.svg"
+              alt="Company logo"
+              class="w-auto h-8"
+            />
+          </a>
+          <!-- Close sidebar button -->
+          <button
+            class="inline-flex items-center justify-center p-2 -mr-2 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-gray-100 hover:bg-gray-800 focus:outline-none focus:bg-gray-800 focus:text-gray-100 lg:hidden"
+            @click="sidebarActive = false"
           >
-            <a href="javascript:void(0)">
-              <img
-                src="https://tailwindui.com/img/logos/workflow-logo-on-dark.svg"
-                alt="Company logo"
-                class="w-auto h-8"
-              />
-            </a>
-            <!-- Close sidebar button -->
-            <button
-              class="inline-flex items-center justify-center p-2 -mr-2 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-gray-100 hover:bg-gray-800 focus:outline-none focus:bg-gray-800 focus:text-gray-100 lg:hidden"
-              @click="sidebarActive = false"
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div class="flex-1 overflow-y-auto">
+          <nav class="px-2 mt-4 space-y-1 font-medium">
+            <!-- Active link
+                Active `a` tag: "bg-gray-900"
+                Active `svg` tag: "text-gray-300"
+                Active `span` tag: "text-gray-200"
+              -->
+            <a
+              href="javascript:void(0)"
+              class="flex items-center p-2 transition duration-150 ease-in-out bg-gray-900 rounded-md group"
             >
               <svg
-                class="w-6 h-6"
+                class="w-6 h-6 text-gray-300 transition duration-150 ease-in-out group-hover:text-gray-300"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -56,135 +74,140 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                 ></path>
               </svg>
-            </button>
-          </div>
-          <div class="flex-1 overflow-y-auto">
-            <nav class="px-2 mt-4 space-y-1 font-medium">
-              <!-- Active link
-                Active `a` tag: "bg-gray-900"
-                Active `svg` tag: "text-gray-300"
-                Active `span` tag: "text-gray-200"
-              -->
-              <a
-                href="javascript:void(0)"
-                class="flex items-center p-2 transition duration-150 ease-in-out bg-gray-900 rounded-md group"
+              <span
+                class="pl-3 leading-5 text-gray-200 transition duration-150 ease-in-out group-hover:text-gray-200"
+                >Dashboard</span
               >
-                <svg
-                  class="w-6 h-6 text-gray-300 transition duration-150 ease-in-out group-hover:text-gray-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  ></path>
-                </svg>
-                <span
-                  class="pl-3 leading-5 text-gray-200 transition duration-150 ease-in-out group-hover:text-gray-200"
-                  >Dashboard</span
-                >
-              </a>
-              <a
-                href="javascript:void(0)"
-                class="flex items-center p-2 rounded-md group"
+            </a>
+            <a
+              href="javascript:void(0)"
+              class="flex items-center p-2 rounded-md group"
+            >
+              <svg
+                class="w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  class="w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                  ></path>
-                </svg>
-                <span
-                  class="pl-3 leading-5 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-200"
-                  >Team</span
-                >
-              </a>
-              <a
-                href="javascript:void(0)"
-                class="flex items-center p-2 rounded-md group"
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                ></path>
+              </svg>
+              <span
+                class="pl-3 leading-5 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-200"
+                >Team</span
               >
-                <svg
-                  class="w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
-                  ></path>
-                </svg>
-                <span
-                  class="pl-3 leading-5 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-200"
-                  >Projects</span
-                >
-              </a>
-              <a
-                href="javascript:void(0)"
-                class="flex items-center p-2 rounded-md group"
+            </a>
+            <a
+              href="javascript:void(0)"
+              class="flex items-center p-2 rounded-md group"
+            >
+              <svg
+                class="w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  class="w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  ></path>
-                </svg>
-                <span
-                  class="pl-3 leading-5 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-200"
-                  >Calendar</span
-                >
-              </a>
-              <a
-                href="javascript:void(0)"
-                class="flex items-center p-2 rounded-md group"
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
+                ></path>
+              </svg>
+              <span
+                class="pl-3 leading-5 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-200"
+                >Projects</span
               >
-                <svg
-                  class="w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-                  ></path>
-                </svg>
+            </a>
+            <a
+              href="javascript:void(0)"
+              class="flex items-center p-2 rounded-md group"
+            >
+              <svg
+                class="w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                ></path>
+              </svg>
+              <span
+                class="pl-3 leading-5 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-200"
+                >Calendar</span
+              >
+            </a>
+            <a
+              href="javascript:void(0)"
+              class="flex items-center p-2 rounded-md group"
+            >
+              <svg
+                class="w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
+                ></path>
+              </svg>
 
-                <span
-                  class="pl-3 leading-5 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-200"
-                  >Documents</span
-                >
-              </a>
-              <a
-                href="javascript:void(0)"
-                class="flex items-center p-2 rounded-md group"
+              <span
+                class="pl-3 leading-5 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-200"
+                >Documents</span
+              >
+            </a>
+            <a
+              href="javascript:void(0)"
+              class="flex items-center p-2 rounded-md group"
+            >
+              <svg
+                class="w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                ></path>
+              </svg>
+              <span
+                class="pl-3 leading-5 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-200"
+                >Reports</span
+              >
+            </a>
+          </nav>
+        </div>
+      </aside>
+
+      <div class="flex flex-col flex-1">
+        <header class="px-4 bg-white shadow">
+          <div class="flex items-center justify-between h-16">
+            <!-- Open sidebar button -->
+            <div class="flex items-center flex-1">
+              <button
+                class="inline-flex items-center justify-center p-2 -ml-2 text-gray-700 transition duration-150 ease-in-out rounded-md lg:hidden hover:text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 focus:text-gray-800"
+                @click="sidebarActive = true"
               >
                 <svg
-                  class="w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300"
+                  class="w-6 h-6"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -193,29 +216,21 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
-                    d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    d="M4 6h16M4 12h16M4 18h16"
                   ></path>
                 </svg>
-                <span
-                  class="pl-3 leading-5 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-200"
-                  >Reports</span
-                >
-              </a>
-            </nav>
-          </div>
-        </aside>
-
-        <div class="flex flex-col flex-1">
-          <header class="px-4 bg-white shadow">
-            <div class="flex items-center justify-between h-16">
-              <!-- Open sidebar button -->
-              <div class="flex items-center flex-1">
-                <button
-                  class="inline-flex items-center justify-center p-2 -ml-2 text-gray-700 transition duration-150 ease-in-out rounded-md lg:hidden hover:text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 focus:text-gray-800"
-                  @click="sidebarActive = true"
+              </button>
+              <div class="relative w-full max-w-sm ml-4 md:max-w-md lg:ml-0">
+                <input
+                  type="text"
+                  placeholder="Search"
+                  class="block w-full pl-10 form-input sm:text-sm sm:leading-5"
+                />
+                <div
+                  class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
                 >
                   <svg
-                    class="w-6 h-6"
+                    class="w-5 h-5 text-gray-400"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -224,53 +239,30 @@
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       stroke-width="2"
-                      d="M4 6h16M4 12h16M4 18h16"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                     ></path>
                   </svg>
-                </button>
-                <div class="relative w-full max-w-sm ml-4 md:max-w-md lg:ml-0">
-                  <input
-                    type="text"
-                    placeholder="Search"
-                    class="block w-full pl-10 form-input sm:text-sm sm:leading-5"
-                  />
-                  <div
-                    class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
-                  >
-                    <svg
-                      class="w-5 h-5 text-gray-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                      ></path>
-                    </svg>
-                  </div>
                 </div>
               </div>
-              <!-- Profile dropdown -->
-              <div class="relative ml-6">
-                <div>
-                  <button
-                    class="flex text-sm transition duration-150 ease-in-out border-2 border-transparent rounded-full focus:outline-none focus:border-gray-400"
-                    id="user-menu"
-                    aria-label="User menu"
-                    aria-haspopup="true"
-                    @click="showProfile = !showProfile"
-                  >
-                    <img
-                      class="w-8 h-8 rounded-full"
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                  </button>
-                </div>
-                <!--
+            </div>
+            <!-- Profile dropdown -->
+            <div class="relative ml-6">
+              <div>
+                <button
+                  class="flex text-sm transition duration-150 ease-in-out border-2 border-transparent rounded-full focus:outline-none focus:border-gray-400"
+                  id="user-menu"
+                  aria-label="User menu"
+                  aria-haspopup="true"
+                  @click="showProfile = !showProfile"
+                >
+                  <img
+                    class="w-8 h-8 rounded-full"
+                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    alt=""
+                  />
+                </button>
+              </div>
+              <!--
                   Profile dropdown panel, show/hide based on dropdown state.
 
                   Entering: "transition ease-out duration-100"
@@ -280,62 +272,61 @@
                     From: "transform opacity-100 scale-100"
                     To: "transform opacity-0 scale-95"
                 -->
-                <!-- Inactive: "hidden" -->
+              <!-- Inactive: "hidden" -->
+              <div
+                class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg"
+                v-show="showProfile"
+              >
                 <div
-                  class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg"
-                  v-show="showProfile"
+                  class="py-1 bg-white rounded-md shadow-xs"
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="user-menu"
                 >
-                  <div
-                    class="py-1 bg-white rounded-md shadow-xs"
-                    role="menu"
-                    aria-orientation="vertical"
-                    aria-labelledby="user-menu"
+                  <a
+                    href="javascript:void(0)"
+                    class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                    role="menuitem"
+                    >Your Profile</a
                   >
-                    <a
-                      href="javascript:void(0)"
-                      class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                      role="menuitem"
-                      >Your Profile</a
-                    >
-                    <a
-                      href="javascript:void(0)"
-                      class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                      role="menuitem"
-                      >Settings</a
-                    >
-                    <a
-                      href="javascript:void(0)"
-                      class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                      role="menuitem"
-                      >Sign out</a
-                    >
-                  </div>
+                  <a
+                    href="javascript:void(0)"
+                    class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                    role="menuitem"
+                    >Settings</a
+                  >
+                  <a
+                    href="javascript:void(0)"
+                    class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                    role="menuitem"
+                    >Sign out</a
+                  >
                 </div>
               </div>
             </div>
-          </header>
+          </div>
+        </header>
 
-          <main class="px-4 py-6 sm:px-6 lg:px-8">
-            <!-- Main content -->
-            <div>
-              <h2 class="text-2xl font-bold text-gray-900">Dashboard</h2>
-              <div
-                class="mt-4 border-4 border-gray-200 border-dashed rounded-md h-96"
-              ></div>
-            </div>
-          </main>
-        </div>
+        <main class="px-4 py-6 sm:px-6 lg:px-8">
+          <!-- Main content -->
+          <div>
+            <h2 class="text-2xl font-bold text-gray-900">Dashboard</h2>
+            <div
+              class="mt-4 border-4 border-gray-200 border-dashed rounded-md h-96"
+            ></div>
+          </div>
+        </main>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
-    <script>
-      new Vue({
-        el: '#app',
-        data: {
-          sidebarActive: false,
-          showProfile: false,
-        },
-      });
-    </script>
-  </body>
-</html>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        sidebarActive: false,
+        showProfile: false,
+      },
+    });
+  </script>
+</body>
