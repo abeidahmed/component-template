@@ -1,3 +1,4 @@
 [ZoneTransfer]
 ZoneId=3
-HostUrl=https://tailwindui.com/img/category-thumbnails/forms-sign-in-forms.svg
+ReferrerUrl=about:client
+HostUrl=about:internet

@@ -1,26 +1,26 @@
 <svg width="280" height="140" viewBox="0 0 280 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="280" height="140" fill="white"/>
-<rect width="280" height="140" fill="#F4F5F7"/>
-<rect x="90" y="30" width="28" height="2" rx="1" fill="#6B7280"/>
+<path d="M280 0H0V140H280V0Z" fill="white"/>
+<path d="M280 0H0V140H280V0Z" fill="#F4F5F7"/>
+<path d="M117 30H91C90.4477 30 90 30.4477 90 31C90 31.5523 90.4477 32 91 32H117C117.552 32 118 31.5523 118 31C118 30.4477 117.552 30 117 30Z" fill="#6B7280"/>
 <g filter="url(#filter0_d)">
-<rect x="90" y="35" width="100" height="12" rx="3" fill="white"/>
-<rect x="89.5" y="34.5" width="101" height="13" rx="3.5" stroke="black" stroke-opacity="0.08"/>
+<path d="M187 35H93C91.3431 35 90 36.3431 90 38V44C90 45.6569 91.3431 47 93 47H187C188.657 47 190 45.6569 190 44V38C190 36.3431 188.657 35 187 35Z" fill="white"/>
+<path d="M187 34.5H93C91.067 34.5 89.5 36.067 89.5 38V44C89.5 45.933 91.067 47.5 93 47.5H187C188.933 47.5 190.5 45.933 190.5 44V38C190.5 36.067 188.933 34.5 187 34.5Z" stroke="black" stroke-opacity="0.08"/>
 </g>
-<rect x="90" y="55" width="31" height="2" rx="1" fill="#6B7280"/>
-<rect x="102" y="83" width="27" height="2" rx="1" fill="#6B7280"/>
-<rect x="159" y="83" width="31" height="2" rx="1" fill="#6B7280"/>
+<path d="M120 55H91C90.4477 55 90 55.4477 90 56C90 56.5523 90.4477 57 91 57H120C120.552 57 121 56.5523 121 56C121 55.4477 120.552 55 120 55Z" fill="#6B7280"/>
+<path d="M128 83H103C102.448 83 102 83.4477 102 84C102 84.5523 102.448 85 103 85H128C128.552 85 129 84.5523 129 84C129 83.4477 128.552 83 128 83Z" fill="#6B7280"/>
+<path d="M189 83H160C159.448 83 159 83.4477 159 84C159 84.5523 159.448 85 160 85H189C189.552 85 190 84.5523 190 84C190 83.4477 189.552 83 189 83Z" fill="#6B7280"/>
 <g filter="url(#filter1_d)">
-<rect x="90" y="60" width="100" height="12" rx="3" fill="white"/>
-<rect x="89.5" y="59.5" width="101" height="13" rx="3.5" stroke="black" stroke-opacity="0.08"/>
+<path d="M187 60H93C91.3431 60 90 61.3431 90 63V69C90 70.6569 91.3431 72 93 72H187C188.657 72 190 70.6569 190 69V63C190 61.3431 188.657 60 187 60Z" fill="white"/>
+<path d="M187 59.5H93C91.067 59.5 89.5 61.067 89.5 63V69C89.5 70.933 91.067 72.5 93 72.5H187C188.933 72.5 190.5 70.933 190.5 69V63C190.5 61.067 188.933 59.5 187 59.5Z" stroke="black" stroke-opacity="0.08"/>
 </g>
 <g filter="url(#filter2_dd)">
-<rect x="89" y="96" width="102" height="14" rx="4" fill="#374151"/>
+<path d="M187 96H93C90.7909 96 89 97.7909 89 100V106C89 108.209 90.7909 110 93 110H187C189.209 110 191 108.209 191 106V100C191 97.7909 189.209 96 187 96Z" fill="#374151"/>
 </g>
 <g filter="url(#filter3_d)">
-<rect x="90" y="80" width="8" height="8" rx="2" fill="white"/>
-<rect x="89.5" y="79.5" width="9" height="9" rx="2.5" stroke="black" stroke-opacity="0.08"/>
+<path d="M96 80H92C90.8954 80 90 80.8954 90 82V86C90 87.1046 90.8954 88 92 88H96C97.1046 88 98 87.1046 98 86V82C98 80.8954 97.1046 80 96 80Z" fill="white"/>
+<path d="M96 79.5H92C90.6193 79.5 89.5 80.6193 89.5 82V86C89.5 87.3807 90.6193 88.5 92 88.5H96C97.3807 88.5 98.5 87.3807 98.5 86V82C98.5 80.6193 97.3807 79.5 96 79.5Z" stroke="black" stroke-opacity="0.08"/>
 </g>
-<rect x="127" y="102" width="27" height="2" rx="1" fill="#9FA6B2"/>
+<path d="M153 102H128C127.448 102 127 102.448 127 103C127 103.552 127.448 104 128 104H153C153.552 104 154 103.552 154 103C154 102.448 153.552 102 153 102Z" fill="#9FA6B2"/>
 <defs>
 <filter id="filter0_d" x="87" y="33" width="106" height="18" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
