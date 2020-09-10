@@ -132,13 +132,13 @@
         </button>
       </div>
     </header>
-    <div class="absolute top-0 right-0 p-6" :class="{ hidden: showHeader }">
+    <div class="absolute top-0 right-0 z-50 p-1" :class="{ hidden: showHeader }">
       <button
         aria-label="show header"
-        class="items-center justify-center p-2 text-gray-700 transition duration-150 ease-in-out rounded-md focus:text-gray-800 focus:outline-none focus:bg-gray-300 hover:text-gray-800"
+        class="items-center justify-center text-white transition duration-150 ease-in-out bg-indigo-600 rounded shadow-md focus:text-gray-100 focus:outline-none focus:bg-indigo-400 hover:bg-indigo-400 hover:text-gray-100"
         @click="showHeader = true"
       >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
       </button>
