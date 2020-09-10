@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col bg-gray-200">
-    <header v-show="showHeader" class="relative bg-gray-800">
-      <div class="flex items-center justify-between px-4 py-4 sm:px-6 md:px-6 lg:px-8 xl:px-12">
+    <header v-show="showHeader" class="relative flex-shrink-0 bg-gray-800">
+      <div class="flex items-center justify-between h-16 px-4 sm:px-6 md:px-6 lg:px-8 xl:px-12">
         <div class="min-w-0">
           <h1 class="text-sm font-medium leading-5 text-gray-200 truncate md:text-base">{{ title }}</h1>
         </div>
@@ -132,7 +132,7 @@
           <button
             aria-label="hide header"
             class="items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md focus:text-white focus:outline-none focus:bg-gray-700 hover:text-white"
-            @click="showHeader = false"
+            @click="showHeader = false, headerHeight = 0"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -152,7 +152,7 @@
       <button
         aria-label="show header"
         class="items-center justify-center text-white transition duration-150 ease-in-out bg-indigo-600 rounded shadow-md focus:text-gray-100 focus:outline-none focus:bg-indigo-400 hover:bg-indigo-400 hover:text-gray-100"
-        @click="showHeader = true"
+        @click="showHeader = true, headerHeight = '64px'"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -162,8 +162,8 @@
     <iframe
       ref="iframeFull"
       :srcdoc="srcDoc"
-      class="w-full h-screen mx-auto"
-      :style="{ maxWidth: frameWidth }"
+      class="flex-1 w-full mx-auto"
+      :style="{ maxWidth: frameWidth, height: `calc(100vh - ${headerHeight})` }"
     ></iframe>
   </div>
 </template>
@@ -179,12 +179,14 @@ export default {
   data() {
     const { htmlContent, cssPath, title } = this.template;
     return {
+      title,
       srcDoc: `
         <!DOCTYPE html>
         <html lang="en">
           <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
             <link rel="stylesheet" href="${cssPath}"/>
           </head>
           <body>
@@ -192,32 +194,39 @@ export default {
           </body>
         </html>
       `,
-      title,
       frameWinWidth: 0,
       activeScreen: '',
       frameWidth: '',
       showHeader: true,
       browserWidth: 0,
+      frameScrollbarWidth: 0,
+      headerHeight: '64px',
     };
   },
   watch: {
     frameWinWidth() {
-      if (this.frameWinWidth >= 0 && this.frameWinWidth <= 639) {
+      if (this.frameWinWidth >= 0 && this.frameWinWidth <= 639.99) {
         this.activeScreen = 'smartphone';
-      } else if (this.frameWinWidth >= 640 && this.frameWinWidth <= 1023) {
+      } else if (this.frameWinWidth >= 640 && this.frameWinWidth <= 1023.99) {
         this.activeScreen = 'tablet';
-      } else if (this.frameWinWidth >= 1024 && this.frameWinWidth <= 1279) {
+      } else if (this.frameWinWidth >= 1024 && this.frameWinWidth <= 1279.99) {
         this.activeScreen = 'laptop';
-      } else if (this.frameWinWidth >= 1280) {
+      } else {
         this.activeScreen = 'desktop';
+      }
+    },
+    showHeader() {
+      if (this.showHeader) {
+        this.headerHeight = '64px';
+      } else {
+        this.headerHeight = '0px';
       }
     },
   },
   mounted() {
-    this.$refs.iframeFull.contentWindow.addEventListener(
-      'resize',
-      this.handleResize
-    );
+    const frameWindow = this.$refs.iframeFull.contentWindow;
+    frameWindow.addEventListener('load', this.calcFrameScrollbarWidth);
+    frameWindow.addEventListener('resize', this.handleResize);
     this.handleResize();
     window.addEventListener('resize', this.handleBrowserResize);
     this.handleBrowserResize();
@@ -230,8 +239,15 @@ export default {
     window.removeEventListener('resize', this.handleBrowserResize);
   },
   methods: {
+    calcFrameScrollbarWidth() {
+      const frame = this.$refs.iframeFull.contentDocument;
+      this.frameScrollbarWidth =
+        document.body.offsetWidth - frame.body.offsetWidth;
+    },
     handleResize() {
-      this.frameWinWidth = this.$refs.iframeFull.contentWindow.document.body.offsetWidth;
+      this.frameWinWidth =
+        this.$refs.iframeFull.contentWindow.document.body.offsetWidth +
+        this.frameScrollbarWidth;
     },
     handleBrowserResize() {
       this.browserWidth = window.innerWidth;
