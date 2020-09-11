@@ -66,6 +66,8 @@ class TemplateGenerator < Rails::Generators::Base
     end
 
     def get_categorizable_title(category_title)
-      get_category(category_title).categorizable.title.underscore
+      # rails underscore method does not work
+      # Ex: "hello world".underscore = "hello world"
+      underscorize(get_category(category_title).categorizable.title)
     end
 end
