@@ -1,0 +1,49 @@
+---
+navigation:
+  navbars:
+  - simple_dark_with_menu_on_left
+elements:
+  buttons:
+  - primary_buttons
+  - secondary_buttons
+  - white_buttons
+  - with_leading_icon
+  - with_trailing_icon
+  alerts:
+  - with_accent_border
+  - with_actions
+  - with_descriptions
+  - with_dismiss_button
+  avatars:
+  - avatar_group_stacked_bottom_to_top
+  badges: []
+page_sections:
+  blog_sections:
+  - cards_with_featured_image_in_column
+  - two_column_with_signup
+  - three_column_with_badges
+  cta_sections:
+  - simple_justified
+  feature_sections:
+  - centered_2x2_grid
+  footers: []
+  newsletter_sections: []
+  stats_sections: []
+  team_sections: []
+  hero_sections: []
+application_shells:
+  sidebar_layouts:
+  - dark_sidebar_with_light_layout
+forms:
+  input_groups:
+  - input_with_inline_leading_addon_and_trailing_dropdown
+  signin_and_registrations:
+  - simple_no_labels
+lists:
+  grid_lists:
+  - simple_cards
+headings:
+  page_headings:
+  - with_meta_and_actions
+overlays:
+  notifications: []

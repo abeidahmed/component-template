@@ -1,0 +1,21 @@
+<main>
+  <%= render "hero" %>
+  <div class="px-4 py-4 mx-auto max-w-8xl sm:px-6 sm:py-12 lg:px-8">
+    <div class="grid grid-cols-1 row-gap-8">
+      <% @component_collections.each do |collection| %>
+        <div class="grid grid-cols-1 row-gap-6 pt-8 border-t border-gray-200 lg:grid-cols-4 lg:gap-5">
+          <div>
+            <h3 class="text-lg font-medium leading-7 tracking-tight text-gray-900">
+              <%= collection.title %>
+            </h3>
+          </div>
+          <div class="grid grid-cols-1 row-gap-8 sm:grid-cols-2 sm:col-gap-5 sm:row-gap-6 md:grid-cols-3 lg:col-span-3">
+            <% collection.categories.each do |category| %>
+              <%= render "categories/card", category: category %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</main>

@@ -1,4 +1,4 @@
-<% if templates_for(category).size > 0 %>
+<% if category.components.size > 0 %>
   <%= link_to category_url(category), class: "block group" do %>
     <figure>
       <div class="relative overflow-hidden transition duration-150 ease-in-out transform rounded">
@@ -11,7 +11,7 @@
           <%= category.title %>
         </p>
         <p class="text-sm leading-5 text-gray-500">
-          <%= pluralize templates_for(category).size, "component" %>
+          <%= pluralize category.components.size, "component" %>
         </p>
       </figcaption>
     </figure>

@@ -1,0 +1,2 @@
+module ComponentCollectionsHelper
+end
