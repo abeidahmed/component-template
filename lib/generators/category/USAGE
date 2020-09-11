@@ -1,8 +1,11 @@
 Description:
-    Generates category for component and page layouts
+    Generates category for component and page layouts.
 
 Example:
     rails generate forms input_groups
+        Where:
+            'forms' is the name of the main wrapper.
+            'input_groups' is the name of the category.
 
     This will create:
         - A 'Input groups' category that will be linked to 'Forms' wrapper.

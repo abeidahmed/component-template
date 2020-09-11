@@ -15,9 +15,11 @@ class CategoryGenerator < Rails::Generators::Base
       if parent_component_collection?
         parent = ComponentCollection.find_by(title: parent_name.humanize)
         create_category_and_folder_in(parent, 'components')
+        generate_components_yaml_file
       elsif parent_page_collection?
         parent = PageCollection.find_by(title: parent_name.humanize)
         create_category_and_folder_in(parent, 'pages')
+        generate_pages_yaml_file
       else
         return puts 'Please type in the correct PARENT NAME'
       end
@@ -52,5 +54,23 @@ class CategoryGenerator < Rails::Generators::Base
     def generate_category_in_pages_folder
       directory = Rails.root.join('app', 'pages', underscorize(title))
       Dir.mkdir(directory)
+    end
+
+    def generate_components_yaml_file
+      YamlWriter.new(
+        type: parent_name,
+        category: title,
+        template_name: nil,
+        file_name: 'components'
+      ).write!
+    end
+
+    def generate_pages_yaml_file
+      YamlWriter.new(
+        type: parent_name,
+        category: title,
+        template_name: nil,
+        file_name: 'pages'
+      ).write!
     end
 end

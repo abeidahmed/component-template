@@ -1,8 +1,22 @@
 Description:
-    Explain the generator
+    Creates a new 'html' file.
 
 Example:
-    rails generate template Thing
+    rails generate template buttons primary_buttons --type=component
+        Where:
+            'buttons' is the name of the category.
+            'primary_buttons' is the name of template you want to create.
+            --type=component saves the template as component in the db.
+
+    rails generate template home_screens with_sidebar --type=page
+        Where:
+            'home_screens' is the name of the category.
+            'with_sidebar' is the name of template you want to create.
+            --type=page saves the template as page in the db.
 
     This will create:
-        what/will/it/create
+        rails generate template buttons primary_buttons --type=component
+            will create 'primary_buttons.html' file in 'buttons' directory.
+
+        rails generate template home_screens with_sidebar --type=page
+            will create 'with_sidebar.html' file in the 'home_screens' directory.
