@@ -82,6 +82,6 @@ class YamlWriter
     end
 
     def add_template_to_category
-      @doc[type][category] << template_name
+      @doc[type][category] << template_name unless template_name.nil?
     end
 end
