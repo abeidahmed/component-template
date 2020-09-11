@@ -2,6 +2,7 @@ class CreateCategories < ActiveRecord::Migration[6.0]
   def change
     create_table :categories do |t|
       t.string :title,    null: false
+      t.belongs_to :categorizable,  polymorphic: true
 
       t.timestamps
     end

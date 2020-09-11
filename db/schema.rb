@@ -17,10 +17,11 @@ ActiveRecord::Schema.define(version: 2020_09_11_092840) do
 
   create_table "categories", force: :cascade do |t|
     t.string "title", null: false
+    t.string "categorizable_type"
+    t.bigint "categorizable_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "slug"
-    t.index ["slug"], name: "index_categories_on_slug", unique: true
+    t.index ["categorizable_type", "categorizable_id"], name: "index_categories_on_categorizable_type_and_categorizable_id"
     t.index ["title"], name: "index_categories_on_title"
   end
 
