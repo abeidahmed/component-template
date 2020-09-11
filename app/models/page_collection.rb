@@ -1,0 +1,2 @@
+class PageCollection < ApplicationRecord
+end
