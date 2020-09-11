@@ -1,8 +1,10 @@
 Description:
-    Explain the generator
+    Generates category for component and page layouts
 
 Example:
-    rails generate category Thing
+    rails generate forms input_groups
 
     This will create:
-        what/will/it/create
+        - A 'Input groups' category that will be linked to 'Forms' wrapper.
+        - A 'input_groups' folder within the 'app/components/' directory or a folder within the 'app/pages/' directory.
+          The location is based on the 'parent wrapper', in this case, the 'forms'.
