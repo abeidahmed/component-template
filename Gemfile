@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'front_matter_parser'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'friendly_id', '~> 5.4.0'
+gem 'bcrypt', '~> 3.1', '>= 3.1.16'
 
 group :development, :test do
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
