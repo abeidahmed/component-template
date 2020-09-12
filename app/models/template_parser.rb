@@ -9,7 +9,7 @@ class TemplateParser
 
   def parse_body
     html_content = File.read(@file)
-    parser.call(html_content[%r{<body>(.*)</body>}m, 1])
+    parser.call(html_content[%r{<body>(.*)</body>}m, 1]).content
   end
 
   def parse_html(target)

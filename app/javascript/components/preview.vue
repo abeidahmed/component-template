@@ -153,7 +153,7 @@ export default {
             <link rel="stylesheet" href="${cssPath}"/>
           </head>
           <body>
-            ${htmlBody.content}
+            ${htmlBody}
           </body>
         </html>
       `,
