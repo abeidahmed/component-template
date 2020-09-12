@@ -2,7 +2,7 @@
   <%= link_to category_url(category), class: "block group" do %>
     <figure>
       <div class="relative overflow-hidden transition duration-150 ease-in-out transform rounded">
-        <%= image_tag "svg/categories/#{underscorize(category.title)}", class: "w-full h-auto" %>
+        <%= image_tag "svg/categories/#{underscorize(category.title)}.svg", class: "w-full h-auto" %>
         <div class="absolute inset-0 flex items-center justify-center text-center transition duration-150 ease-in-out border border-gray-900 rounded-md opacity-15"></div>
         <div class="absolute inset-0 transition duration-150 ease-in-out bg-white opacity-0 group-hover:opacity-30"></div>
       </div>
@@ -20,7 +20,7 @@
   <div class="block">
     <figure class="opacity-50">
       <div class="relative overflow-hidden transition duration-150 ease-in-out transform rounded">
-        <%= image_tag "svg/categories/#{underscorize(category.title)}", class: "w-full h-auto" %>
+        <%= image_tag "svg/categories/#{underscorize(category.title)}.svg", class: "w-full h-auto" %>
         <div class="absolute inset-0 flex items-center justify-center text-center transition duration-150 ease-in-out border-2 border-gray-900 border-dashed rounded-md opacity-15"></div>
       </div>
       <figcaption class="mt-3">
