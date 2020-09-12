@@ -3,7 +3,23 @@
     <header v-show="showHeader" class="relative flex-shrink-0 bg-gray-800">
       <div class="flex items-center justify-between h-16 px-4 sm:px-6 md:px-6 lg:px-8 xl:px-12">
         <div class="min-w-0">
-          <h1 class="text-sm font-medium leading-5 text-gray-200 truncate md:text-base">{{ title }}</h1>
+          <a :href="categoryURL" class="flex items-center group">
+            <svg
+              class="w-5 h-5 -ml-2 text-gray-200 transition duration-150 ease-in-out group-hover:text-gray-400"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <h1
+              class="pl-1 text-sm font-medium leading-5 text-gray-200 truncate transition duration-150 ease-in-out md:text-base group-hover:text-gray-400"
+            >{{ title }}</h1>
+          </a>
         </div>
         <div
           class="absolute hidden sm:flex sm:items-center sm:space-x-4"
@@ -131,7 +147,7 @@
         <div class="is-tooltip">
           <button
             aria-label="hide header"
-            class="items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md focus:text-white focus:outline-none focus:bg-gray-700 hover:text-white"
+            class="items-center justify-center p-2 -mr-3 text-gray-400 transition duration-150 ease-in-out rounded-md focus:text-white focus:outline-none focus:bg-gray-700 hover:text-white"
             @click="showHeader = false, headerHeight = 0"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -177,9 +193,10 @@ export default {
     },
   },
   data() {
-    const { htmlContent, cssPath, title } = this.template;
+    const { htmlContent, cssPath, title, categoryURL } = this.template;
     return {
       title,
+      categoryURL,
       srcDoc: `
         <!DOCTYPE html>
         <html lang="en">

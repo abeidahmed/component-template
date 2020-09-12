@@ -3,5 +3,6 @@
 <template-show :template="<%= {
   title: TemplateParser.new(@template).get_title,
   htmlContent: TemplateParser.new(@template).parse_body,
-  cssPath: Webpacker.manifest.lookup('application.css')
+  cssPath: Webpacker.manifest.lookup('application.css'),
+  categoryURL: category_url(@component.category)
 }.to_json %>"></template-show>
