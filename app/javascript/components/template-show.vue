@@ -193,7 +193,11 @@ export default {
     },
   },
   data() {
-    const { htmlContent, cssPath, title, categoryURL } = this.template;
+    const {
+      contents: { htmlBody, title },
+      cssPath,
+      categoryURL,
+    } = this.template;
     return {
       title,
       categoryURL,
@@ -207,7 +211,7 @@ export default {
             <link rel="stylesheet" href="${cssPath}"/>
           </head>
           <body>
-            ${htmlContent}
+            ${htmlBody}
           </body>
         </html>
       `,

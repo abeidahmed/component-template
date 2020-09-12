@@ -133,10 +133,8 @@ export default {
   },
   data() {
     const {
-      displayCode,
+      contents: { displayCode, title, htmlBody },
       cssPath,
-      title,
-      htmlBody,
       templateURL,
     } = this.template;
     return {

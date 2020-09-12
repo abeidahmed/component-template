@@ -14,6 +14,10 @@ module PagesHelper
     chars.split(' ').map { |el| el.downcase }.join('_')
   end
 
+  def dashed(string)
+    string.downcase.split(' ').join('-')
+  end
+
   def embed_svg(filename, **options)
     file_path = Rails.root.join('app', 'assets', 'images', 'svg', filename)
     return unless File.exists?(file_path)

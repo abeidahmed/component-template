@@ -1,28 +1,32 @@
 class TemplateParser
-  def initialize(file)
-    @file = file
+  include PagesHelper
+
+  def initialize(type:, category:, template:)
+    @type = type
+    @category = category
+    @template = template
   end
 
-  def get_title
-    parse_frontmatter["title"]
+  attr_reader :type, :category, :template
+
+  def template_path
+    Rails.root.join("app", "#{type}", "#{underscorize category.title}", "#{dashed template.title}.html")
   end
 
-  def parse_body
-    html_content = File.read(@file)
-    parser.call(html_content[%r{<body>(.*)</body>}m, 1]).content
-  end
-
-  def parse_html(target)
-    nokogiri_object = Nokogiri::HTML(File.read(@file))
-    nokogiri_object.at_css(target).children.to_html
+  def contents
+    {
+      title: template.title,
+      htmlBody: parse_body,
+      displayCode: parse_html,
+    }
   end
 
   private
-    def parser
-      FrontMatterParser::Parser.new(:html)
+    def parse_body
+      FrontMatterParser::Parser.new(:html).call(File.read(template_path)[%r{<body>(.*)</body>}m, 1]).content
     end
 
-    def parse_frontmatter
-      parser.call(File.read(@file))
+    def parse_html
+      Nokogiri::HTML(File.read(template_path)).at_css('div.start-below').children.to_html
     end
 end

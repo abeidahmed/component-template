@@ -8,13 +8,11 @@
           <%= @category.title %>
         </h3>
       </div>
-      <% @templates.each do |template| %>
+      <% @category.components.each do |component| %>
         <preview :template="<%= {
-          title: TemplateParser.new(template).get_title,
-          displayCode: TemplateParser.new(template).parse_html("div.start-below"),
-          htmlBody: TemplateParser.new(template).parse_body,
+          contents: TemplateParser.new(type: 'components', category: @category, template: component).contents,
           cssPath: Webpacker.manifest.lookup("application.css"),
-          templateURL: template_url(File.basename(template, ".*"))
+          templateURL: component_url(dashed component.title)
         }.to_json %>"></preview>
       <% end %>
     </div>
