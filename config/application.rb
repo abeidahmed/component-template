@@ -35,7 +35,6 @@ module ComponentTemplate
     # disable asset generation
     config.generators do |g|
       g.assets false
-      g.test_framework nil
     end
 
     # join font assets folder
