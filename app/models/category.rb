@@ -1,4 +1,6 @@
 class Category < ApplicationRecord
+  include PagesHelper
+
   extend FriendlyId
   friendly_id :title, use: :slugged
 
@@ -7,4 +9,8 @@ class Category < ApplicationRecord
   has_many :pages
 
   validates :title, presence: true, uniqueness: { case_sensitive: false }
+
+  def fetch_components_directory
+    Dir["app/components/#{underscorize(self.title)}/*.html"]
+  end
 end
