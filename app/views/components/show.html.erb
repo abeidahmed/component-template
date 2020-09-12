@@ -3,5 +3,5 @@
 <template-show :template="<%= {
   contents: TemplateParser.new(type: 'components', category: @component.category, template: @component).contents,
   cssPath: Webpacker.manifest.lookup('application.css'),
-  categoryURL: category_url(@component.category)
+  goBackURL: category_url(@component.category)
 }.to_json %>"></template-show>

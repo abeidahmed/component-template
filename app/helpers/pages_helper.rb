@@ -19,7 +19,7 @@ module PagesHelper
   end
 
   def embed_svg(filename, **options)
-    file_path = Rails.root.join('app', 'assets', 'images', 'svg', filename)
+    file_path = Rails.root.join('app', 'assets', 'images', 'svg', "#{filename}.svg")
     return unless File.exists?(file_path)
     file = File.read(file_path)
     doc = Nokogiri::HTML::DocumentFragment.parse(file)

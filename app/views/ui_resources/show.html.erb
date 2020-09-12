@@ -1,0 +1,6 @@
+<% provide(:title, @template.title) %>
+
+<template-show :template="<%= {
+  contents: TemplateParser.new(type: params[:type], category: @template.category, template: @template).contents,
+  cssPath: Webpacker.manifest.lookup('application.css')
+}.to_json %>"></template-show>

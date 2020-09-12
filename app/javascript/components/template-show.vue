@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col bg-gray-200">
-    <header v-show="showHeader" class="relative flex-shrink-0 bg-gray-800">
+    <header v-if="goBackURL" v-show="showHeader" class="relative flex-shrink-0 bg-gray-800">
       <div class="flex items-center justify-between h-16 px-4 sm:px-6 md:px-6 lg:px-8 xl:px-12">
         <div class="min-w-0">
-          <a :href="categoryURL" class="flex items-center group">
+          <a :href="goBackURL" class="flex items-center group">
             <IconBase
               viewBox="0 0 20 20"
               modifier="solid"
@@ -89,7 +89,7 @@
       </div>
     </header>
 
-    <div class="absolute top-0 right-0 z-50 p-1" :class="{ hidden: showHeader }">
+    <div v-if="goBackURL" class="absolute top-0 right-0 z-50 p-1" :class="{ hidden: showHeader }">
       <button
         aria-label="show header"
         class="items-center justify-center text-white transition duration-150 ease-in-out bg-indigo-600 rounded shadow-md focus:text-gray-100 focus:outline-none focus:bg-indigo-400 hover:bg-indigo-400 hover:text-gray-100"
@@ -104,7 +104,7 @@
       ref="iframeFull"
       :srcdoc="srcDoc"
       class="flex-1 w-full mx-auto"
-      :style="{ maxWidth: frameWidth, height: `calc(100vh - ${headerHeight})` }"
+      :style="{ maxWidth: frameWidth, height: goBackURL ? `calc(100vh - ${headerHeight})` : '100vh' }"
     ></iframe>
   </div>
 </template>
@@ -140,11 +140,11 @@ export default {
     const {
       contents: { htmlBody, title },
       cssPath,
-      categoryURL,
+      goBackURL,
     } = this.template;
     return {
       title,
-      categoryURL,
+      goBackURL,
       srcDoc: `
         <!DOCTYPE html>
         <html lang="en">
