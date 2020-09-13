@@ -13,11 +13,13 @@
                 @click="showMenu = !showMenu"
               >
                 <!-- Icon when menu is closed. -->
-                <!-- Menu open: "hidden", Menu closed: "block" -->
-                <%= embed_svg "stroke/menu", class: "block w-6 h-6" %>
+                <span :class="{ hidden: showMenu }">
+                  <%= embed_svg "stroke/menu", class: "block w-6 h-6" %>
+                </span>
                 <!-- Icon when menu is open. -->
-                <!-- Menu open: "block", Menu closed: "hidden" -->
-                <%= embed_svg "stroke/x", class: "block w-6 h-6" %>
+                <span :class="{ hidden: !showMenu }">
+                  <%= embed_svg "stroke/x", class: "block w-6 h-6" %>
+                </span>
               </button>
             </div>
             <div
@@ -69,7 +71,6 @@
               >
                 <%= embed_svg "stroke/bell", class: "block w-6 h-6" %>
               </button>
-
               <!-- Profile dropdown -->
               <div class="relative ml-3">
                 <div>
@@ -87,16 +88,6 @@
                     />
                   </button>
                 </div>
-                <!--
-                    Profile dropdown panel, show/hide based on dropdown state.
-
-                    Entering: "transition ease-out duration-100"
-                      From: "transform opacity-0 scale-95"
-                      To: "transform opacity-100 scale-100"
-                    Leaving: "transition ease-in duration-75"
-                      From: "transform opacity-100 scale-100"
-                      To: "transform opacity-0 scale-95"
-                  -->
                 <div
                   class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg"
                   v-show="showProfile"
@@ -131,12 +122,6 @@
             </div>
           </div>
         </div>
-
-        <!--
-            Mobile menu, toggle classes based on menu state.
-
-            Menu open: "block", Menu closed: "hidden"
-          -->
         <div v-show="showMenu" class="sm:hidden">
           <div class="px-2 pt-2 pb-3">
             <a
