@@ -24,8 +24,8 @@ class TemplateGenerator < Rails::Generators::Base
 
   private
     def copy_component_template
-      copy_file "template_boilerplate.html",
-        "app/components/#{underscorize(category_title)}/#{template_title.dasherize}.html"
+      copy_file "template_boilerplate.html.erb",
+        "app/components/#{underscorize(category_title)}/#{template_title.dasherize}.html.erb"
     end
 
     def create_component_template
@@ -43,8 +43,8 @@ class TemplateGenerator < Rails::Generators::Base
     end
 
     def copy_page_template
-      copy_file "template_boilerplate.html",
-        "app/pages/#{underscorize(category_title)}/#{template_title.dasherize}.html"
+      copy_file "template_boilerplate.html.erb",
+        "app/pages/#{underscorize(category_title)}/#{template_title.dasherize}.html.erb"
     end
 
     def create_page_template

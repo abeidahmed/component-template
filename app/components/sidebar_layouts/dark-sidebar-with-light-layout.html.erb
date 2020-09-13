@@ -31,19 +31,7 @@
             class="inline-flex items-center justify-center p-2 -mr-2 text-gray-300 transition duration-150 ease-in-out rounded-md hover:text-gray-100 hover:bg-gray-800 focus:outline-none focus:bg-gray-800 focus:text-gray-100 lg:hidden"
             @click="sidebarActive = false"
           >
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              ></path>
-            </svg>
+            <%= embed_svg "stroke/x", class: "w-6 h-6" %>
           </button>
         </div>
         <div class="flex-1 overflow-y-auto">
@@ -57,115 +45,42 @@
               href="#"
               class="flex items-center p-2 transition duration-150 ease-in-out bg-gray-900 rounded-md group"
             >
-              <svg
-                class="w-6 h-6 text-gray-300 transition duration-150 ease-in-out group-hover:text-gray-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                ></path>
-              </svg>
+              <%= embed_svg "stroke/home", class: "w-6 h-6 text-gray-300 transition duration-150 ease-in-out group-hover:text-gray-300" %>
               <span
                 class="pl-3 leading-5 text-gray-200 transition duration-150 ease-in-out group-hover:text-gray-200"
                 >Dashboard</span
               >
             </a>
             <a href="#" class="flex items-center p-2 rounded-md group">
-              <svg
-                class="w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                ></path>
-              </svg>
+              <%= embed_svg "stroke/user-group", class: "w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300" %>
               <span
                 class="pl-3 leading-5 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-200"
                 >Team</span
               >
             </a>
             <a href="#" class="flex items-center p-2 rounded-md group">
-              <svg
-                class="w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
-                ></path>
-              </svg>
+              <%= embed_svg "stroke/folder", class: "w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300" %>
               <span
                 class="pl-3 leading-5 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-200"
                 >Projects</span
               >
             </a>
             <a href="#" class="flex items-center p-2 rounded-md group">
-              <svg
-                class="w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                ></path>
-              </svg>
+              <%= embed_svg "stroke/calendar", class: "w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300" %>
               <span
                 class="pl-3 leading-5 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-200"
                 >Calendar</span
               >
             </a>
             <a href="#" class="flex items-center p-2 rounded-md group">
-              <svg
-                class="w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-                ></path>
-              </svg>
-
+              <%= embed_svg "stroke/inbox", class: "w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300" %>
               <span
                 class="pl-3 leading-5 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-200"
                 >Documents</span
               >
             </a>
             <a href="#" class="flex items-center p-2 rounded-md group">
-              <svg
-                class="w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                ></path>
-              </svg>
+              <%= embed_svg "stroke/chart-square-bar", class: "w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-300" %>
               <span
                 class="pl-3 leading-5 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-200"
                 >Reports</span
@@ -184,19 +99,7 @@
                 class="inline-flex items-center justify-center p-2 -ml-2 text-gray-700 transition duration-150 ease-in-out rounded-md lg:hidden hover:text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 focus:text-gray-800"
                 @click="sidebarActive = true"
               >
-                <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  ></path>
-                </svg>
+                <%= embed_svg "stroke/menu", class: "w-6 h-6" %>
               </button>
               <div class="relative w-full max-w-sm ml-4 md:max-w-md lg:ml-0">
                 <input
@@ -207,23 +110,11 @@
                 <div
                   class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
                 >
-                  <svg
-                    class="w-5 h-5 text-gray-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    ></path>
-                  </svg>
+                  <%= embed_svg "stroke/search", class: "w-5 h-5 text-gray-400" %>
                 </div>
               </div>
             </div>
-            <!-- Profile dropdown -->
+
             <div class="relative ml-6">
               <div>
                 <button
@@ -240,17 +131,7 @@
                   />
                 </button>
               </div>
-              <!--
-                  Profile dropdown panel, show/hide based on dropdown state.
 
-                  Entering: "transition ease-out duration-100"
-                    From: "transform opacity-0 scale-95"
-                    To: "transform opacity-100 scale-100"
-                  Leaving: "transition ease-in duration-75"
-                    From: "transform opacity-100 scale-100"
-                    To: "transform opacity-0 scale-95"
-                -->
-              <!-- Inactive: "hidden" -->
               <div
                 class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg"
                 v-show="showProfile"
