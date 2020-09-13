@@ -4,7 +4,7 @@ module.exports = {
   purge: [
     './app/views/**/*.html.erb',
     './app/javascript/components/**/*.vue',
-    './app/components/**/*.html',
+    './app/components/**/*.html.erb',
   ],
   theme: {
     extend: {
