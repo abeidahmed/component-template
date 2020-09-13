@@ -9,8 +9,4 @@ class Category < ApplicationRecord
   has_many :pages
 
   validates :title, presence: true, uniqueness: { case_sensitive: false }
-
-  def fetch_components_directory
-    Dir["app/components/#{underscorize(self.title)}/*.html"]
-  end
 end
