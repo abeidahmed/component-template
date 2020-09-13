@@ -6,36 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# categories = [
-#   'Cta sections',
-#   'Navbars',
-#   'Page headings',
-#   'Buttons',
-#   'Feature sections',
-#   'Avatars',
-#   'Hero sections',
-#   'Sidebar layouts',
-#   'Sign-in and registrations',
-#   'Newsletter sections',
-#   'Badges',
-#   'Notifications',
-#   'Alerts',
-#   'Input groups',
-#   'Stats',
-#   'Grid lists',
-#   'Blog sections',
-#   'Team sections',
-#   'Footers'
-# ]
-
-# if Rails.env.production?
-#   categories.each do |category|
-#     Category.create!(title: category) unless Category.exists?(title: category)
-#   end
-# else
-#   puts "Cannot run seed on development and test environment!"
-# end
-
 file_path = Rails.root.join('db', 'components.yml')
 doc = YAML::load_file(file_path)
 
