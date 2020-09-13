@@ -28,6 +28,7 @@ pre[class*='language-'] {
 
 /* Code blocks */
 pre[class*='language-'] {
+  padding: 1rem;
   overflow-x: auto;
   display: block;
   line-height: 1.5;

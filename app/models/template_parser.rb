@@ -27,7 +27,12 @@ class TemplateParser
     end
 
     def parse_html
-      Nokogiri::HTML(erb_to_html(template_path), &:noblanks).at_css('div.start-below').children.to_xhtml(indent: 2)
+      html_code = Nokogiri::HTML(erb_to_html(template_path))
+        .at_css('div.start-below')
+        .children
+        .to_html
+        .html_safe
+      HtmlBeautifier.beautify(html_code)
     end
 
     def get_after_body
