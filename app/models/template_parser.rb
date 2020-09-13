@@ -23,7 +23,7 @@ class TemplateParser
 
   private
     def parse_body
-      FrontMatterParser::Parser.new(:html).call(get_after_body).content
+      FrontMatterParser::Parser.new(:erb).call(get_within_body).content
     end
 
     def parse_html
@@ -35,7 +35,7 @@ class TemplateParser
       HtmlBeautifier.beautify(html_code)
     end
 
-    def get_after_body
+    def get_within_body
       erb_to_html(template_path)[%r{<body>(.*)</body>}m, 1]
     end
 
