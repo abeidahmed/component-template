@@ -38,12 +38,12 @@ Next create the template for `page_headings` category.
 `rails g template page_headings with_meta_and_actions --type=component`.
 
 - This is a custom rails generator and it will create a `with_meta_and_actions` template within the `page_headings` category. Again follow the rails naming convention.
-- This will create a `html` file within the `page_headings` folder with the name `with_meta_and_actions.html`.
+- This will create a `erb` file within the `page_headings` folder with the name `with_meta_and_actions.html.erb`.
 - The `type` args is necessary here. I am thinking of expanding the app by not just making smaller components, but also by making full page templates.
 
 You can visit [TailwindUI](https://tailwindui.com/) to get a brief idea about the structure of the files that you created.
 
-Look at the `components.yml` file in the `db/components.yml`. Using the above generators will ensure proper storage in the `yml` file. But, why the `yml` file? Because the `html` templates are not stored in the `db`. Seeding data in `production` mode will be extremely time consuming and hectic. Hence with the help of the `yml` file, we can just run `heroku run rake db:seed` and the `seeds.rb` will take care of the rest.
+Look at the `components.yml` file in the `db/components.yml`. Using the above generators will ensure proper storage in the `yml` file. But, why the `yml` file? Because the `erb` templates are not stored in the `db`. Seeding data in `production` mode will be extremely time consuming and hectic. Hence with the help of the `yml` file, we can just run `heroku run rake db:seed` and the `seeds.rb` will take care of the rest.
 
 ### Any errors?
 
