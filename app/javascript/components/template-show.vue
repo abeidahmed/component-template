@@ -101,7 +101,7 @@
       </button>
     </div>
     <iframe
-      ref="iframeFull"
+      ref="iframe"
       :srcdoc="srcDoc"
       class="flex-1 w-full mx-auto"
       :style="{ maxWidth: frameWidth, height: goBackURL ? `calc(100vh - ${headerHeight})` : '100vh' }"
@@ -189,15 +189,16 @@ export default {
     },
   },
   mounted() {
-    const frameWindow = this.$refs.iframeFull.contentWindow;
-    frameWindow.addEventListener('load', this.calcFrameScrollbarWidth);
-    frameWindow.addEventListener('resize', this.handleResize);
+    const frame = this.$refs.iframe.contentWindow;
+    frame.addEventListener('load', this.calcFrameScrollbarWidth);
+    frame.addEventListener('load', this.disableAnchorTag);
+    frame.addEventListener('resize', this.handleResize);
     this.handleResize();
     window.addEventListener('resize', this.handleBrowserResize);
     this.handleBrowserResize();
   },
   destroyed() {
-    this.$refs.iframeFull.contentWindow.removeEventListener(
+    this.$refs.iframe.contentWindow.removeEventListener(
       'resize',
       this.handleResize
     );
@@ -205,13 +206,13 @@ export default {
   },
   methods: {
     calcFrameScrollbarWidth() {
-      const frame = this.$refs.iframeFull.contentDocument;
+      const frame = this.$refs.iframe.contentDocument;
       this.frameScrollbarWidth =
         document.body.offsetWidth - frame.body.offsetWidth;
     },
     handleResize() {
       this.frameWinWidth =
-        this.$refs.iframeFull.contentWindow.document.body.offsetWidth +
+        this.$refs.iframe.contentDocument.body.offsetWidth +
         this.frameScrollbarWidth;
     },
     handleBrowserResize() {
@@ -222,6 +223,14 @@ export default {
         return end;
       }
       return start;
+    },
+    disableAnchorTag() {
+      let links = this.$refs.iframe.contentDocument.getElementsByTagName('a');
+      for (let link of links) {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+        });
+      }
     },
   },
 };

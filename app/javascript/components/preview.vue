@@ -172,6 +172,7 @@ export default {
   mounted() {
     const frame = this.$refs.iframe.contentWindow;
     frame.addEventListener('load', this.calcFrameHeight);
+    frame.addEventListener('load', this.disableAnchorTag);
     frame.addEventListener('resize', this.calcFrameHeight);
     this.calcFrameHeight();
   },
@@ -190,6 +191,14 @@ export default {
     calcFrameHeight() {
       this.frameHeight =
         this.$refs.iframe.contentDocument.body.offsetHeight + 'px';
+    },
+    disableAnchorTag() {
+      let links = this.$refs.iframe.contentDocument.getElementsByTagName('a');
+      for (let link of links) {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+        });
+      }
     },
   },
 };
