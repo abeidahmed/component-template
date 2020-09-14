@@ -110,6 +110,7 @@
 </template>
 
 <script>
+import { disableEvent } from '../utils/dom-helpers';
 import IconBase from './svg/icon-base';
 import ChevronLeft from './svg/icons/chevron-left-solid';
 import ChevronUp from './svg/icons/chevron-up';
@@ -191,7 +192,7 @@ export default {
   mounted() {
     const frame = this.$refs.iframe.contentWindow;
     frame.addEventListener('load', this.calcFrameScrollbarWidth);
-    frame.addEventListener('load', this.disableAnchorTag);
+    frame.addEventListener('load', this.disableClickers);
     frame.addEventListener('resize', this.handleResize);
     this.handleResize();
     window.addEventListener('resize', this.handleBrowserResize);
@@ -224,13 +225,12 @@ export default {
       }
       return start;
     },
-    disableAnchorTag() {
-      let links = this.$refs.iframe.contentDocument.getElementsByTagName('a');
-      for (let link of links) {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-        });
-      }
+    disableClickers() {
+      const frame = this.$refs.iframe.contentDocument;
+      let links = frame.getElementsByTagName('a');
+      let forms = frame.getElementsByTagName('form');
+      disableEvent(links, 'click');
+      disableEvent(forms, 'submit');
     },
   },
 };

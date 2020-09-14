@@ -130,6 +130,7 @@
 
 <script>
 import Prism from 'vue-prism-component';
+import { disableEvent } from '../utils/dom-helpers';
 
 export default {
   props: {
@@ -172,7 +173,7 @@ export default {
   mounted() {
     const frame = this.$refs.iframe.contentWindow;
     frame.addEventListener('load', this.calcFrameHeight);
-    frame.addEventListener('load', this.disableAnchorTag);
+    frame.addEventListener('load', this.disableClickers);
     frame.addEventListener('resize', this.calcFrameHeight);
     this.calcFrameHeight();
   },
@@ -192,13 +193,12 @@ export default {
       this.frameHeight =
         this.$refs.iframe.contentDocument.body.offsetHeight + 'px';
     },
-    disableAnchorTag() {
-      let links = this.$refs.iframe.contentDocument.getElementsByTagName('a');
-      for (let link of links) {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-        });
-      }
+    disableClickers() {
+      const frame = this.$refs.iframe.contentDocument;
+      let links = frame.getElementsByTagName('a');
+      let forms = frame.getElementsByTagName('form');
+      disableEvent(links, 'click');
+      disableEvent(forms, 'submit');
     },
   },
 };
