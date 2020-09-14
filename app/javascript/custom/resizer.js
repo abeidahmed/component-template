@@ -33,7 +33,7 @@ interact('.resizer')
 
       // minimum size
       interact.modifiers.restrictSize({
-        min: { width: 375 },
+        min: { width: 411 },
       }),
     ],
 
