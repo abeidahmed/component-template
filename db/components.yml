@@ -48,3 +48,6 @@ headings:
   - with_meta_and_actions
 overlays:
   notifications: []
+  modals:
+  - centered_with_single_action
+  - simple_with_gray_footer
