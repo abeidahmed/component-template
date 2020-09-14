@@ -11,7 +11,7 @@
       <% @category.components.each do |component| %>
         <preview :template="<%= {
           contents: TemplateParser.new(type: 'components', category: @category, template: component).contents,
-          cssPath: Webpacker.manifest.lookup("application.css"),
+          cssPath: Webpacker.manifest.lookup('application.css'),
           templateURL: component_url(dashed component.title)
         }.to_json %>"></preview>
       <% end %>

@@ -10,7 +10,6 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
-gem 'front_matter_parser'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'friendly_id', '~> 5.4.0'
 gem 'htmlbeautifier', '~> 1.3', '>= 1.3.1'

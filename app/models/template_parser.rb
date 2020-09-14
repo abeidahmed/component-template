@@ -1,33 +1,23 @@
 class TemplateParser
   include PagesHelper
 
-  def initialize(type:, category:, template:)
-    @type = type
-    @category = category
-    @template = template
-  end
-
-  attr_reader :type, :category, :template
-
-  def template_path
-    Rails.root.join("app", "#{type}", "#{underscorize category.title}", "#{dashed template.title}.html.erb")
+  def initialize(**options)
+    @type = options[:type]
+    @category = options[:category]
+    @template = options[:template]
   end
 
   def contents
     {
-      title: template.title,
+      title: @template.title,
       htmlBody: parse_body,
       displayCode: parse_html,
     }
   end
 
   private
-    def parse_body
-      FrontMatterParser::Parser.new(:erb).call(get_within_body).content
-    end
-
     def parse_html
-      html_code = Nokogiri::HTML(erb_to_html(template_path))
+      html_code = Nokogiri::HTML(erb_to_html_content)
         .at_css('div.start-below')
         .children
         .to_html
@@ -35,11 +25,15 @@ class TemplateParser
       HtmlBeautifier.beautify(html_code)
     end
 
-    def get_within_body
-      erb_to_html(template_path)[%r{<body>(.*)</body>}m, 1]
+    def parse_body
+      erb_to_html_content[%r{<body>(.*)</body>}m, 1]
     end
 
-    def erb_to_html(file_path)
-      ERB.new(File.read(file_path)).result(binding)
+    def erb_to_html_content
+      ERB.new(File.read(template_path)).result(binding)
+    end
+
+    def template_path
+      Rails.root.join('app', "#{@type}", "#{underscorize @category.title}", "#{dashed @template.title}.html.erb")
     end
 end
