@@ -11,17 +11,17 @@ class YamlWriter
   #   }
   # }
 
-  def initialize(type:, category:, template_name:, file_name:)
-    @type = type
-    @category = category
-    @template_name = template_name
-    @file_name = file_name
+  def initialize(**options)
+    @type = options[:type]
+    @category = options[:category]
+    @template_name = options[:template_name]
+    @file_name = options[:file_name]
   end
 
   attr_reader :type, :category, :template_name, :file_name
 
   def file_path
-    Rails.root.join("db", "#{file_name}.yml")
+    Rails.root.join('db', "#{file_name}.yml")
   end
 
   def write!
