@@ -24,6 +24,10 @@ module.exports = {
         '30': '0.3',
         ...defaultTheme.opacity,
       },
+      height: {
+        ...defaultTheme.height,
+        '140': '36rem',
+      },
     },
   },
   variants: {
