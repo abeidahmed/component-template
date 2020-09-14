@@ -37,6 +37,7 @@ forms:
   - input_with_inline_leading_addon_and_trailing_dropdown
   signin_and_registrations:
   - simple_no_labels
+  - simple_card_with_secondary_action
 lists:
   grid_lists:
   - simple_cards
