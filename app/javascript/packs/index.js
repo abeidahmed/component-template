@@ -56,13 +56,11 @@ import TurbolinksAdapter from 'vue-turbolinks';
 import Vue from 'vue/dist/vue.esm';
 import Preview from '../components/preview.vue';
 import TemplateShow from '../components/template-show.vue';
-import MobileHeader from '../components/modules/mobile-header.vue';
 
 Vue.use(TurbolinksAdapter);
 
 Vue.component('preview', Preview);
 Vue.component('template-show', TemplateShow);
-Vue.component('mobile-header', MobileHeader);
 
 document.addEventListener('turbolinks:load', () => {
   const app = new Vue({
