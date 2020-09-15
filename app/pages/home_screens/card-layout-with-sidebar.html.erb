@@ -1,0 +1,385 @@
+<body>
+  <div class="start-below">
+    <div id="app" class="flex min-h-screen bg-gray-100">
+      <div class="fixed inset-0 z-10 lg:hidden" :class="{ hidden: !sidebarActive }">
+        <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+      </div>
+      <aside :class="sidebarActive ? 'translate-x-0' : '-translate-x-full'" class="fixed top-0 z-50 flex flex-col flex-shrink-0 w-64 h-screen transition duration-150 ease-in-out transform bg-teal-700 lg:translate-x-0 lg:sticky">
+        <div class="relative flex items-center h-16 px-4">
+          <%= embed_svg "logos/teal-logo", class: "h-8 w-auto" %>
+          <div class="absolute top-0 right-0 p-2 -mr-14">
+            <button @click="sidebarActive = false" :class="{ hidden: !sidebarActive }" class="flex items-center p-2 bg-gray-700 rounded-full focus:outline-none focus:bg-gray-500">
+              <%= embed_svg "stroke/x", class: "w-6 h-6 text-white" %>
+            </button>
+          </div>
+        </div>
+        <div class="mt-4">
+          <nav class="px-2 space-y-1 text-sm font-medium">
+            <a href="#" class="flex items-center p-2 transition duration-150 ease-in-out bg-teal-800 rounded-md group">
+              <%= embed_svg "stroke/home", class: "w-6 h-6 text-teal-200" %>
+              <span class="pl-3 leading-5 tracking-wide text-teal-100 transition duration-150 ease-in-out group-hover:text-teal-100">
+                Dashboard
+              </span>
+            </a>
+            <a href="#" class="flex items-center p-2 rounded-md group">
+              <%= embed_svg "stroke/user-group", class: "w-6 h-6 text-teal-300 transition duration-150 ease-in-out group-hover:text-teal-200" %>
+              <span class="pl-3 leading-5 tracking-wide text-teal-200 transition duration-150 ease-in-out group-hover:text-teal-100">
+                Team
+              </span>
+            </a>
+            <a href="#" class="flex items-center p-2 rounded-md group">
+              <%= embed_svg "stroke/folder", class: "w-6 h-6 text-teal-300 transition duration-150 ease-in-out group-hover:text-teal-200" %>
+              <span class="pl-3 leading-5 tracking-wide text-teal-200 transition duration-150 ease-in-out group-hover:text-teal-100">
+                Projects
+              </span>
+            </a>
+            <a href="#" class="flex items-center p-2 rounded-md group">
+              <%= embed_svg "stroke/calendar", class: "w-6 h-6 text-teal-300 transition duration-150 ease-in-out group-hover:text-teal-200" %>
+              <span class="pl-3 leading-5 tracking-wide text-teal-200 transition duration-150 ease-in-out group-hover:text-teal-100">
+                Calendar
+              </span>
+            </a>
+            <a href="#" class="flex items-center p-2 rounded-md group">
+              <%= embed_svg "stroke/inbox", class: "w-6 h-6 text-teal-300 transition duration-150 ease-in-out group-hover:text-teal-200" %>
+              <span class="pl-3 leading-5 tracking-wide text-teal-200 transition duration-150 ease-in-out group-hover:text-teal-100">
+                Documents
+              </span>
+            </a>
+            <a href="#" class="flex items-center p-2 rounded-md group">
+              <%= embed_svg "stroke/chart-square-bar", class: "w-6 h-6 text-teal-300 transition duration-150 ease-in-out group-hover:text-teal-200" %>
+              <span class="pl-3 leading-5 tracking-wide text-teal-200 transition duration-150 ease-in-out group-hover:text-teal-100">
+                Reports
+              </span>
+            </a>
+          </nav>
+          <div class="py-6">
+            <div class="w-full border-t border-teal-900"></div>
+          </div>
+          <nav class="px-2 space-y-1 text-sm font-medium">
+            <a href="#" class="flex items-center p-2 rounded-md group">
+              <%= embed_svg "stroke/cog", class: "w-6 h-6 text-teal-300 transition duration-150 ease-in-out group-hover:text-teal-200" %>
+              <span class="pl-3 leading-5 tracking-wide text-teal-200 transition duration-150 ease-in-out group-hover:text-teal-100">
+                Settings
+              </span>
+            </a>
+            <a href="#" class="flex items-center p-2 rounded-md group">
+              <%= embed_svg "stroke/question-mark-circle", class: "w-6 h-6 text-teal-300 transition duration-150 ease-in-out group-hover:text-teal-200" %>
+              <span class="pl-3 leading-5 tracking-wide text-teal-200 transition duration-150 ease-in-out group-hover:text-teal-100">
+                Help
+              </span>
+            </a>
+            <a href="#" class="flex items-center p-2 rounded-md group">
+              <%= embed_svg "stroke/shield-check", class: "w-6 h-6 text-teal-300 transition duration-150 ease-in-out group-hover:text-teal-200" %>
+              <span class="pl-3 leading-5 tracking-wide text-teal-200 transition duration-150 ease-in-out group-hover:text-teal-100">
+                Privacy
+              </span>
+            </a>
+          </nav>
+        </div>
+      </aside>
+      <%# End sidebar %>
+      <div class="flex flex-col flex-1 overflow-y-auto">
+        <div class="shadow">
+          <header class="bg-white lg:px-8">
+            <div class="flex items-center justify-between h-16 border-b border-gray-200">
+              <button @click="sidebarActive = true" class="h-16 px-4 text-gray-500 transition duration-150 ease-in-out border-r border-gray-200 lg:hidden hover:text-gray-600 focus:outline-none focus:text-gray-600 focus:bg-gray-200">
+                <%= embed_svg "stroke/menu-alt-1", class: "w-6 h-6" %>
+              </button>
+              <div class="relative flex items-center flex-1 h-16">
+                <input type="text" placeholder="Search" class="block w-full py-3 pl-10 pr-3 text-base text-gray-700 border-0 appearance-none sm:text-sm sm:leading-5 lg:pl-8 focus:outline-none">
+                <div class="absolute pl-3 pointer-events-none lg:pl-0">
+                  <%= embed_svg "stroke/search", class: "w-5 h-5 text-gray-500" %>
+                </div>
+              </div>
+              <div class="flex items-center px-4 space-x-3">
+                <button class="p-1 text-gray-500 transition duration-150 ease-in-out border-2 border-transparent rounded-full hover:text-gray-600 focus:outline-none focus:text-gray-600 focus:bg-gray-200">
+                  <%= embed_svg "stroke/bell", class: "w-6 h-6" %>
+                </button>
+                <div class="relative">
+                  <button @click="showProfile = !showProfile" class="flex items-center text-sm transition duration-150 ease-in-out border-2 border-transparent rounded-full focus:outline-none focus:border-gray-400">
+                    <img class="w-8 h-8 rounded-full" src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=144&h=144&q=80" alt="User profile" />
+                    <span class="items-center hidden lg:flex">
+                      <p class="pl-3 text-sm font-medium text-gray-700">Esther Howard</p>
+                      <%= embed_svg "solid/chevron-down", class: "h-5 w-5 text-gray-500" %>
+                    </span>
+                  </button>
+                  <div :class="{ hidden: !showProfile }" class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg">
+                    <div class="py-1 bg-white rounded-md shadow-xs">
+                      <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100" role="menuitem">
+                        Your Profile
+                      </a>
+                      <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100" role="menuitem">
+                        Settings
+                      </a>
+                      <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100" role="menuitem">
+                        Sign out
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </header>
+          <%# End header %>
+          <div class="px-4 py-6 bg-white sm:px-6 lg:px-8 md:flex md:items-center md:justify-between">
+            <div class="flex items-center">
+              <img class="flex-shrink-0 rounded-full w-14 h-14" src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=144&h=144&q=80" alt="User profile">
+              <div>
+                <h1 class="ml-3 text-2xl font-bold leading-8 text-gray-900">Good morning, Esther Howard</h1>
+                <div class="hidden mt-1 ml-3 md:flex md:items-center md:space-x-5">
+                  <div class="flex items-center">
+                    <%= embed_svg "solid/location-marker", class: "h-5 w-5 text-gray-400" %>
+                    <p class="ml-1 text-sm font-medium leading-5 text-gray-600">Duke Street Studio</p>
+                  </div>
+                  <div class="flex items-center">
+                    <%= embed_svg "solid/check-circle", class: "h-5 w-5 text-green-400" %>
+                    <p class="ml-1 text-sm font-medium leading-5 text-gray-600">Verified Account</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-6 space-y-2 md:hidden">
+              <div class="flex items-center">
+                <%= embed_svg "solid/location-marker", class: "h-5 w-5 text-gray-400" %>
+                <p class="ml-1 text-sm font-medium leading-5 text-gray-600">Duke Street Studio</p>
+              </div>
+              <div class="flex items-center">
+                <%= embed_svg "solid/check-circle", class: "h-5 w-5 text-green-400" %>
+                <p class="ml-1 text-sm font-medium leading-5 text-gray-600">Verified Account</p>
+              </div>
+            </div>
+            <div class="mt-6 space-x-3 md:mt-0">
+              <span class="rounded-md shadow-sm">
+                <button class="inline-flex items-center px-3 py-2 text-sm font-medium leading-5 text-gray-700 whitespace-no-wrap transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50">
+                  Add money
+                </button>
+              </span>
+              <span class="rounded-md shadow-sm">
+                <button class="inline-flex items-center px-3 py-2 text-sm font-medium leading-5 text-white whitespace-no-wrap transition duration-150 ease-in-out bg-teal-600 border border-transparent rounded-md hover:bg-teal-500 focus:outline-none focus:border-teal-700 focus:shadow-outline-teal active:bg-teal-700">
+                  Send money
+                </button>
+              </span>
+            </div>
+          </div>
+          <%# End secondary header %>
+        </div>
+        <main class="px-4 py-8 space-y-8 sm:px-6 lg:px-8">
+          <div>
+            <h3 class="text-lg font-medium text-gray-900">Overview</h3>
+            <div class="grid gap-5 mt-2 sm:grid-cols-2 md:grid-cols-3">
+              <div class="overflow-hidden rounded-lg shadow sm:col-span-1">
+                <div class="flex items-center p-6 bg-white">
+                  <div>
+                    <%= embed_svg "stroke/scale", class: "h-6 w-6 text-gray-400" %>
+                  </div>
+                  <div class="min-w-0 ml-5">
+                    <p class="text-sm font-medium text-gray-600 truncate">Account balance</p>
+                    <p class="text-lg font-medium text-gray-900 truncate">$30,654.89</p>
+                  </div>
+                </div>
+                <div class="px-6 py-3">
+                  <a href="#" class="text-sm font-medium text-teal-600 transition duration-150 ease-in-out hover:text-teal-500">View all</a>
+                </div>
+              </div>
+              <div class="overflow-hidden rounded-lg shadow sm:col-span-1">
+                <div class="flex items-center p-6 bg-white">
+                  <div>
+                    <%= embed_svg "stroke/refresh", class: "h-6 w-6 text-gray-400" %>
+                  </div>
+                  <div class="min-w-0 ml-5">
+                    <p class="text-sm font-medium text-gray-600 truncate0">Pending</p>
+                    <p class="text-lg font-medium text-gray-900 truncate">$25,458.63</p>
+                  </div>
+                </div>
+                <div class="px-6 py-3">
+                  <a href="#" class="text-sm font-medium text-teal-600 transition duration-150 ease-in-out hover:text-teal-500">View all</a>
+                </div>
+              </div>
+              <div class="overflow-hidden rounded-lg shadow sm:col-span-2 md:col-span-1">
+                <div class="flex items-center p-6 bg-white">
+                  <div>
+                    <%= embed_svg "stroke/check-circle", class: "h-6 w-6 text-gray-400" %>
+                  </div>
+                  <div class="min-w-0 ml-5">
+                    <p class="text-sm font-medium text-gray-600 truncate">Processed (last 30 days)</p>
+                    <p class="text-lg font-medium text-gray-900 truncate">$16,254.47</p>
+                  </div>
+                </div>
+                <div class="px-6 py-3">
+                  <a href="#" class="text-sm font-medium text-teal-600 transition duration-150 ease-in-out hover:text-teal-500">View all</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%# End grid list %>
+          <div class="flex flex-col">
+            <h3 class="text-lg font-medium text-gray-900">Recent activity</h3>
+            <div class="mt-2">
+              <div class="overflow-hidden rounded-lg shadow">
+                <div class="inline-block w-full overflow-x-auto align-middle border-b border-gray-200">
+                  <table class="min-w-full divide-y divide-gray-200">
+                    <thead>
+                      <tr>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase bg-gray-50">
+                          Transaction
+                        </th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-right text-gray-500 uppercase bg-gray-50">
+                          Amount
+                        </th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase bg-gray-50">
+                          Status
+                        </th>
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-right text-gray-500 uppercase bg-gray-50">
+                          Date
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                      <tr v-for="(person, i) in persons">
+                        <td class="px-6 py-4 whitespace-no-wrap">
+                          <div class="flex items-center">
+                            <%= embed_svg "solid/cash", class: "w-h h-5 text-gray-400" %>
+                            <span class="pl-2 text-sm leading-5 text-gray-500">
+                              Payment to {{ person.name }}
+                            </span>
+                          </div>
+                        </td>
+                        <td class="px-6 py-4 text-right whitespace-no-wrap">
+                          <span class="text-sm font-medium leading-5 text-gray-900">
+                            ${{ person.amount }}
+                          </span>
+                          <span class="text-sm leading-5 text-gray-500">
+                            USD
+                          </span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-no-wrap">
+                          <span :class="person.pillClass" class="inline-flex px-2 text-xs font-semibold leading-5 rounded-full">
+                            {{ person.status }}
+                          </span>
+                        </td>
+                        <td class="px-6 py-4 text-sm leading-5 text-right text-gray-500 whitespace-no-wrap">
+                          {{ person.date }}
+                        </td>
+                      </tr>
+                      <!-- More rows... -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="flex items-center justify-between py-3 mt-3">
+                <div class="flex justify-between flex-1 sm:hidden">
+                  <a href="#" class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700">
+                    Previous
+                  </a>
+                  <a href="#" class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700">
+                    Next
+                  </a>
+                </div>
+                <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                  <div>
+                    <p class="text-sm leading-5 text-gray-700">
+                      Showing
+                      <span class="font-medium">1</span>
+                      to
+                      <span class="font-medium">10</span>
+                      of
+                      <span class="font-medium">97</span>
+                      results
+                    </p>
+                  </div>
+                  <div>
+                    <nav class="relative z-0 inline-flex shadow-sm">
+                      <a href="#" class="relative inline-flex items-center px-2 py-2 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-l-md hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500" aria-label="Previous">
+                        <%= embed_svg "solid/chevron-left", class: "w-5 h-5" %>
+                      </a>
+                      <a href="#" class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700">
+                        1
+                      </a>
+                      <a href="#" class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700">
+                        2
+                      </a>
+                      <a href="#" class="relative items-center hidden px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 md:inline-flex hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700">
+                        3
+                      </a>
+                      <span class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 bg-white border border-gray-300">
+                        ...
+                      </span>
+                      <a href="#" class="relative items-center hidden px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 md:inline-flex hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700">
+                        8
+                      </a>
+                      <a href="#" class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700">
+                        9
+                      </a>
+                      <a href="#" class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700">
+                        10
+                      </a>
+                      <a href="#" class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-r-md hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500" aria-label="Next">
+                        <%= embed_svg "solid/chevron-right", class: "w-5 h-5" %>
+                      </a>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+              <%# End pagination %>
+            </div>
+          </div>
+          <%# End table content %>
+        </main>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        sidebarActive: false,
+        showProfile: false,
+        persons: [
+          {
+            name: 'Jane Cooper',
+            amount: '20,000',
+            status: 'Success',
+            date: 'July 11, 2020',
+            pillClass: 'text-green-800 bg-green-100'
+          },
+          {
+            name: 'Cody Fisher',
+            amount: '20,547',
+            status: 'Processing',
+            date: 'July 5, 2020',
+            pillClass: 'text-yellow-800 bg-yellow-100'
+          },
+          {
+            name: 'Esther Howard',
+            amount: '8,741',
+            status: 'Success',
+            date: 'July 4, 2020',
+            pillClass: 'text-green-800 bg-green-100'
+          },
+          {
+            name: 'Jenny Wilson',
+            amount: '15,784',
+            status: 'Success',
+            date: 'July 1, 2020',
+            pillClass: 'text-green-800 bg-green-100'
+          },
+          {
+            name: 'Kristin Watson',
+            amount: '25,457',
+            status: 'Failed',
+            date: 'June 11, 2020',
+            pillClass: 'text-gray-800 bg-gray-100'
+          },
+          {
+            name: 'Cameron Williamson',
+            amount: '32,124',
+            status: 'Processing',
+            date: 'June 3, 2020',
+            pillClass: 'text-yellow-800 bg-yellow-100'
+          },
+        ],
+      }
+    })
+  </script>
+</body>

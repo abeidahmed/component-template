@@ -1,0 +1,4 @@
+---
+admin_layouts:
+  home_screens:
+  - card_layout_with_sidebar
