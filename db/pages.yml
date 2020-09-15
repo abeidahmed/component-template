@@ -1,4 +1,5 @@
 ---
 admin_layouts:
   home_screens:
-  - card_layout_with_sidebar
+    - card_layout_with_sidebar
+    - full_width_table_with_sidebar
