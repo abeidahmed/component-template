@@ -5,6 +5,7 @@ module.exports = {
     './app/views/**/*.html.erb',
     './app/javascript/components/**/*.vue',
     './app/components/**/*.html.erb',
+    './app/pages/**/*.html.erb',
   ],
   theme: {
     extend: {
@@ -32,6 +33,7 @@ module.exports = {
   },
   variants: {
     opacity: ['responsive', 'group-hover'],
+    borderWidth: ['responsive', 'first'],
   },
   plugins: [require('@tailwindcss/ui')],
 };
