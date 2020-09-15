@@ -1,6 +1,4 @@
 class UiResourcesController < ApplicationController
-  layout 'slate'
-
   def index
     @components = YAML::load_file(file_path('components'))
     @pages = YAML::load_file(file_path('pages'))

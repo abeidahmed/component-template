@@ -1,72 +1,8 @@
 <main class="min-h-screen bg-white">
   <div class="px-4 py-16 mx-auto max-w-8xl sm:px-6 lg:px-8">
     <div class="grid gap-y-16 lg:grap-y-0 lg:grid-cols-2 lg:gap-x-8">
-      <% if @components %>
-        <div>
-          <h2 class="text-4xl font-bold leading-8 text-gray-900">
-            Components
-          </h2>
-          <div class="mt-6 space-y-6">
-            <% @components.each do |title, contents| %>
-              <div>
-                <div class="inline-flex items-center">
-                  <span>
-                    <%= embed_svg "solid/hashtag", class: "w-6 h-6 text-gray-500" %>
-                  </span>
-                  <h3 class="pl-1 text-2xl font-semibold leading-5 text-gray-900"><%= title.humanize %></h3>
-                </div>
-                <div class="space-y-6">
-                  <% contents.each do |category, templates| %>
-                    <div class="mt-2 ml-7">
-                      <h4 class="text-lg font-medium text-gray-700"><%= category.humanize %></h4>
-                      <% templates.each do |template| %>
-                        <ul class="min-w-0 mt-2 ml-5 space-y-1 list-disc">
-                          <li class="truncate">
-                            <%= link_to template.humanize, ui_resource_url(template.dasherize, type: "components"), class: "text-indigo-600 truncate transition duration-150 ease-in-out hover:text-indigo-500", target: "_blank" %>
-                          </li>
-                        </ul>
-                      <% end %>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-      <% if @pages %>
-        <div>
-          <h2 class="text-4xl font-bold leading-8 text-gray-900">
-            Pages
-          </h2>
-          <div class="mt-6 space-y-6">
-            <% @pages.each do |title, contents| %>
-              <div>
-                <div class="inline-flex items-center">
-                  <span>
-                    <%= embed_svg "solid/hashtag", class: "w-6 h-6 text-gray-500" %>
-                  </span>
-                  <h3 class="pl-1 text-2xl font-semibold leading-5 text-gray-900"><%= title.humanize %></h3>
-                </div>
-                <div class="space-y-6">
-                  <% contents.each do |category, templates| %>
-                    <div class="mt-2 ml-7">
-                      <h4 class="text-lg font-medium text-gray-700"><%= category.humanize %></h4>
-                      <% templates.each do |template| %>
-                        <ul class="min-w-0 mt-2 ml-5 space-y-1 list-disc">
-                          <li class="truncate">
-                            <%= link_to template.humanize, ui_resource_url(template.dasherize, type: "pages"), class: "text-indigo-600 truncate transition duration-150 ease-in-out hover:text-indigo-500", target: "_blank" %>
-                          </li>
-                        </ul>
-                      <% end %>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
+      <%= render "list", templates: @components, type: "components" %>
+      <%= render "list", templates: @pages, type: "pages" %>
     </div>
   </div>
 </main>
