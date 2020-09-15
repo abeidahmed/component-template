@@ -2,5 +2,6 @@
 
 <template-show :template="<%= {
   contents: TemplateParser.new(type: @type, category: @template.category, template: @template).contents,
-  cssPath: Webpacker.manifest.lookup('application.css')
+  cssPath: Webpacker.manifest.lookup('application.css'),
+  goBackURL: category_url(@template.category, type: @type)
 }.to_json %>"></template-show>
