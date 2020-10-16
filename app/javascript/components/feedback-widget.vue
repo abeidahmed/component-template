@@ -1,7 +1,9 @@
 <template>
   <div class="relative">
-    <button @click="isActive = !isActive" class="text-sm font-medium text-gray-500 transition duration-150 ease-in-out sm:text-base hover:text-gray-800">Give your feedback</button>
-    <div :class="{ 'hidden': !isActive }" class="absolute p-4 pb-0 mt-2 transform -translate-x-1/2 bg-white rounded-md shadow-lg w-80 left-1/2">
+    <button @click="isActive = !isActive" class="text-sm font-medium text-gray-500 transition duration-150 ease-in-out sm:text-base hover:text-gray-800">
+      <span class="hidden md:inline">Give your </span><span class="md:lowercase">Feedback</span>
+    </button>
+    <div :class="{ 'hidden': !isActive }" class="absolute right-0 p-4 pb-0 mt-2 transform bg-white rounded-md md:-translate-x-1/2 shadow-custom w-80 md:left-1/2">
       <div class="flex items-center space-x-1" :class="activeState === 'success' ? 'justify-end' : 'justify-between'">
         <span aria-hidden="true" class="w-7" :class="{ 'hidden': activeState !== 'initial' }"></span>
         <button @click="activeState = 'initial'" class="p-1 rounded focus:outline-none focus:shadow-outline" :class="{ 'hidden': activeState !== 'feedback' }">

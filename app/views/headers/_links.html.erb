@@ -1,20 +1,20 @@
 <div class="flex items-center space-x-4">
   <div class="flex items-center space-x-4">
-    <feedback-widget></feedback-widget>
     <div class="space-x-4">
       <%= link_to "Components", root_url, class: "text-sm sm:text-base font-medium text-gray-500 hover:text-gray-800 transition duration-150 ease-in-out" %>
       <%= link_to "Pages", page_collections_url, class: "text-sm sm:text-base font-medium text-gray-500 hover:text-gray-800 transition duration-150 ease-in-out" %>
     </div>
+    <feedback-widget></feedback-widget>
     <% unless Rails.env.production? %>
       <div class="hidden sm:block">
         <%= link_to "Resources", ui_resources_url, class: "text-sm sm:text-base font-medium text-gray-500 hover:text-gray-800 transition duration-150 ease-in-out" %>
       </div>
     <% end %>
-    <div class="self-stretch">
+    <div class="self-stretch hidden sm:block">
       <div class="h-full border-l border-gray-200"></div>
     </div>
   </div>
-  <div class="flex items-center space-x-4">
+  <div class="items-center hidden space-x-4 sm:flex">
     <a href="https://github.com/abeidahmed/component-template" target="_blank" aria-label="github" class="text-gray-500 transition duration-150 ease-in-out hover:text-gray-800">
       <%= embed_svg "solid/github", class: "w-6 h-6" %>
     </a>
