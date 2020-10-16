@@ -93,7 +93,7 @@ export default {
         body: JSON.stringify({
           feedback: {
             content: this.content,
-            sender_email: '',
+            sender_email: 'Guest',
             page_url: window.location.pathname,
             device: ''
           }
