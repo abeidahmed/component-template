@@ -3,4 +3,12 @@
 @import 'font';
 @import 'prism';
 @import 'tooltip';
+
+button:disabled,
+button[disabled] {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
+
 @import 'tailwindcss/utilities';

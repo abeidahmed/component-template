@@ -48,7 +48,9 @@
         <div>
           <label for="feedback-content" class="sr-only">Type your feedback</label>
           <textarea v-model="content" id="feedback-content" rows="3" placeholder="Share your feedback" class="block w-full text-sm font-medium resize-none form-textarea"></textarea>
-          <button class="w-full px-2 mt-1.5 py-0.5 text-sm font-medium leading-6 text-white transition duration-150 ease-in-out bg-indigo-600 rounded-md hover:bg-indigo-500 focus:outline-none focus:shadow-outline">Give feedback</button>
+          <button :disabled="!content.length" class="w-full px-2 mt-1.5 py-0.5 text-sm font-medium leading-6 text-white transition duration-150 ease-in-out bg-indigo-600 rounded-md hover:bg-indigo-500 focus:outline-none focus:shadow-outline">
+            Give feedback
+          </button>
         </div>
       </form>
       <div :class="activeState === 'success' ? 'block' : 'hidden'" class="mt-3">
@@ -56,8 +58,12 @@
           <svg class="w-12 h-12 mx-auto text-green-400" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
           </svg>
-          <h3 class="mt-3 text-sm font-medium text-gray-600">Yay! You just gave a feedback!</h3>
-          <button @click="activeState = 'initial'" class="px-3 py-0.5 mt-1 text-xs leading-5 text-gray-500 bg-gray-100 rounded hover:text-gray-700 focus:outline-none border border-transparent focus:border-gray-300">Give more</button>
+          <h3 class="mt-3 text-sm font-medium text-gray-600">
+            Yay! You just gave a feedback!
+          </h3>
+          <button @click="activeState = 'initial'" class="px-3 py-0.5 mt-1 text-xs leading-5 text-gray-500 bg-gray-100 rounded hover:text-gray-700 focus:outline-none border border-transparent focus:border-gray-300">
+            Give more
+          </button>
         </div>
       </div>
       <footer class="py-1.5 text-xs text-center text-gray-400">
@@ -81,7 +87,7 @@ export default {
   },
   data() {
     return {
-      isActive: true,
+      isActive: false,
       activeState: 'initial',
       activeTag: '',
       content: '',
