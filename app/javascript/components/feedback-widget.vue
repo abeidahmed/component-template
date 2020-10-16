@@ -61,7 +61,10 @@
         </div>
       </div>
       <footer class="py-1.5 text-xs text-center text-gray-400">
-        Widget by <a href="https://feeder-fish.herokuapp.com/" target="_blank" class="text-gray-500 underline">Feeder</a>
+        Widget by
+        <a href="https://feeder-fish.herokuapp.com/" target="_blank" rel="external noopener noreferrer" class="text-gray-500 underline">
+          Feeder
+        </a>
       </footer>
     </div>
   </div>
