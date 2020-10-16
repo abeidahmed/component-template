@@ -47,7 +47,7 @@
       <form @submit.prevent="handleSubmit" :class="activeState === 'feedback' ? 'block' : 'hidden'" class="mt-3 h-28">
         <div>
           <label for="feedback-content" class="sr-only">Type your feedback</label>
-          <textarea v-model="content" id="feedback-content" rows="3" placeholder="Share your feedback" class="block w-full text-sm font-medium resize-none form-textarea"></textarea>
+          <textarea ref="textareaRef" v-model="content" id="feedback-content" rows="3" placeholder="Share your feedback" class="block w-full text-sm font-medium resize-none form-textarea"></textarea>
           <button :disabled="!content.length" class="w-full px-2 mt-1.5 py-0.5 text-sm font-medium leading-6 text-white transition duration-150 ease-in-out bg-indigo-600 rounded-md hover:bg-indigo-500 focus:outline-none focus:shadow-outline">
             Give feedback
           </button>
@@ -94,6 +94,13 @@ export default {
       projectId: '63171620-e6be-4201-8dff-06af6c9bdaf6',
     }
   },
+  watch: {
+    activeState(newValue) {
+      if (newValue === 'feedback') {
+        this.handleFocus();
+      }
+    }
+  },
   methods: {
     handleSubmit() {
       fetch(`https://feeder-fish.herokuapp.com/v1/projects/${this.projectId}/feedbacks?tag=${this.activeTag}`, {
@@ -112,6 +119,9 @@ export default {
       })
       .then(res => this.activeState = 'success')
       .catch(err => console.log(err))
+    },
+    handleFocus() {
+      this.$nextTick(() => this.$refs.textareaRef.focus());
     }
   }
 }
